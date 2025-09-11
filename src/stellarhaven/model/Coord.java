@@ -1,4 +1,4 @@
-package stellarhaven;
+package stellarhaven.model;
 
 /**
  * @author William

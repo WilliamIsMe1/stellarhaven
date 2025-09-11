@@ -1,6 +1,4 @@
-package stellarhaven.entity.genetics;
-
-import stellarhaven.entity.Gender;
+package stellarhaven.model.entity.genetics;
 
 public class Genetics {
     // their hair color

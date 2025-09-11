@@ -1,4 +1,4 @@
-package stellarhaven.entity.genetics;
+package stellarhaven.model.entity.genetics;
 
 public class Allele implements Comparable<Allele> {
     protected int dominanceScore;

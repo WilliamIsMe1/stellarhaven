@@ -1,4 +1,4 @@
-package stellarhaven.entity.genetics;
+package stellarhaven.model.entity.genetics;
 
 public class HairColorAllele extends Allele {
     public enum Color {

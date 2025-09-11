@@ -1,4 +1,4 @@
-package stellarhaven.entity;
+package stellarhaven.model.entity;
 
 import stellarhaven.Coord;
 import stellarhaven.entity.genetics.Genetics;

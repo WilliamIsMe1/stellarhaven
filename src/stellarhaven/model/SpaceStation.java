@@ -1,4 +1,4 @@
-package stellarhaven;
+package stellarhaven.model;
 import stellarhaven.entity.Entity;
 
 import java.io.Serial;
