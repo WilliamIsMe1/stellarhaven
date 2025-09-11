@@ -14,7 +14,8 @@ public class SpaceStation implements Serializable {
 
     public SpaceStation() {
         world.put(new Coord(0,0), new StructureBlock());
-        world.put(new Coord(4,0), new StructureBlock());
+        world.put(new Coord(1,0), new StructureBlock());
+        world.put(new Coord(0,1), new StructureBlock());
     }
 
     @Serial
@@ -41,7 +42,7 @@ public class SpaceStation implements Serializable {
         for (Map.Entry<Coord, Structure> e : sortedWorld) {
             e.getValue().draw(
                 g2, 
-                IsometricUtils.calculateIsometric(e.getKey().multiply(Constants.TILE_SIZE/2)
+                IsometricUtils.calculateIsometric(e.getKey().multiply(Constants.TILE_SIZE)
                     .multiply(Constants.GAME_SCALE))
                     .add(offset)
             ); // Draw it where it is. We can do culling later.
