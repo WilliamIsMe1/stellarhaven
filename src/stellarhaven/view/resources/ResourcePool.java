@@ -1,4 +1,4 @@
-package stellarhaven.view;
+package stellarhaven.view.resources;
 
 import java.util.HashMap;
 
