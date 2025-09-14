@@ -15,7 +15,7 @@ import java.util.HashMap;
  * @param <T> The type of resource being managed by the pool.
  * @author William
  */
-public abstract class ResourcePool<T> {
+public abstract class ResourcePool<T> { // My class
 
     private static HashMap<Integer, ResourcePool<?>> pools = new HashMap<>();
 
