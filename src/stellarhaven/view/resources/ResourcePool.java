@@ -17,7 +17,7 @@ import java.util.HashMap;
  */
 public abstract class ResourcePool<T> { // My class
 
-    private static HashMap<Integer, ResourcePool<?>> pools = new HashMap<>();
+    private static final HashMap<Integer, ResourcePool<?>> pools = new HashMap<>();
 
     private static int counter = 0;
 

@@ -6,6 +6,9 @@ import stellarhaven.view.GamePanel;
 import stellarhaven.view.resources.ImageResourcePool;
 import stellarhaven.view.resources.ResourcePool;
 
+/**
+ * Entry point for Stellar Haven the game
+ */
 public class Main {
     @SuppressWarnings("unused")
     public static void main(String[] args) {    
