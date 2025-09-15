@@ -24,7 +24,7 @@ public abstract class ResourcePool<T> { // My class
     /**
      * Registers a new {@link ResourcePool} and returns its unique ID.
      * @param newPool The {@link ResourcePool} to register
-     * @returns The unique ID associated with the registered pool
+     * @return The unique ID associated with the registered pool
      */
     public static int createResourcePool(ResourcePool<?> newPool) {
         pools.put(counter, newPool);
@@ -44,7 +44,7 @@ public abstract class ResourcePool<T> { // My class
     /**This method should be implemented by subclasses to load and cache resources,
      * returning null if not found
      * @param path The path to the resource to be obtained
-     * @returns The resource
+     * @return The resource
      */
     public abstract T getItem(String path);
 

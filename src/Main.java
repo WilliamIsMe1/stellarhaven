@@ -1,10 +1,18 @@
+import java.awt.image.BufferedImage;
+
 import javax.swing.JFrame;
 
 import stellarhaven.view.GamePanel;
+import stellarhaven.view.resources.ImageResourcePool;
+import stellarhaven.view.resources.ResourcePool;
 
 public class Main {
-    public static void main(String[] args) {
+    @SuppressWarnings("unused")
+    public static void main(String[] args) {    
         // Start main resource loading
+        ResourcePool<?> images = new ImageResourcePool();
+        int imagePool = ResourcePool.createResourcePool(images);
+        
         // Start main game window
         JFrame frame = new JFrame();
         GamePanel gp = new GamePanel();
@@ -17,6 +25,8 @@ public class Main {
         frame.setVisible(true);
         gp.startGameThread();
         // Load save files
+
         // Start User UI
+        
     }
 }
