@@ -1,8 +1,7 @@
-import java.awt.image.BufferedImage;
-
 import javax.swing.JFrame;
 
 import stellarhaven.view.GamePanel;
+import stellarhaven.view.resources.AudioResourcePool;
 import stellarhaven.view.resources.ImageResourcePool;
 import stellarhaven.view.resources.ResourcePool;
 
@@ -10,13 +9,29 @@ import stellarhaven.view.resources.ResourcePool;
  * Entry point for Stellar Haven, a game in which you
  * manage a colony of people on a reproductive 
  * terraforming mission
+ * 
+ * @author William
  */
 public class Main {
-    @SuppressWarnings("unused")
+    /**
+     * Entry point main method for program
+     */
     public static void main(String[] args) {
+
         // Start main resource loading
         ResourcePool<?> images = new ImageResourcePool();
         int imagePool = ResourcePool.createResourcePool(images);
+        if (imagePool != 0) {
+            System.err.println(imagePool + " is not 0");
+            System.exit(-1);
+        }
+        ResourcePool<?> audio = new AudioResourcePool();
+        int audioPool = ResourcePool.createResourcePool(audio);
+        if (audioPool != 1) {
+            System.err.println(audioPool + " is not 1");
+            System.exit(-1);
+        }
+        
         
         // Start main game window
         JFrame frame = new JFrame();
