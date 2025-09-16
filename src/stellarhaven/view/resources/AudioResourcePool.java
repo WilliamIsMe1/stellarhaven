@@ -9,6 +9,13 @@ import java.io.IOException;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 
+/**
+ * A {@link ResourcePool} subclass that stores and loads
+ * {@link Clip} instances for playback as sound effects
+ * or longform audio music
+ * 
+ * @author William
+ */
 public class AudioResourcePool extends ResourcePool<Clip> {
 
     @Override
