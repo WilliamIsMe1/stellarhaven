@@ -17,8 +17,14 @@ import java.util.HashMap;
  */
 public abstract class ResourcePool<T> { // My class
 
+    /**
+     * These are the {@link ResourcePool} instances
+     */
     private static final HashMap<Integer, ResourcePool<?>> pools = new HashMap<>();
 
+    /**
+     * This is the amount of {@link ResourcePool} instances that are registered
+     */
     private static int counter = 0;
 
     /**

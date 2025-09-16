@@ -7,11 +7,13 @@ import stellarhaven.view.resources.ImageResourcePool;
 import stellarhaven.view.resources.ResourcePool;
 
 /**
- * Entry point for Stellar Haven the game
+ * Entry point for Stellar Haven, a game in which you
+ * manage a colony of people on a reproductive 
+ * terraforming mission
  */
 public class Main {
     @SuppressWarnings("unused")
-    public static void main(String[] args) {    
+    public static void main(String[] args) {
         // Start main resource loading
         ResourcePool<?> images = new ImageResourcePool();
         int imagePool = ResourcePool.createResourcePool(images);
