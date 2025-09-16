@@ -13,7 +13,7 @@ import stellarhaven.view.scene.Scene;
  * in sync with the render function, named draw({@link Graphics2D} g2) in 
  * most classes. It relies on a {@link Scene} based architecture and 
  * allows for the passing of a {@link HashMap} object to a new 
- * {@link Scene}, giving it the information necessary to it's own 
+ * {@link Scene}, giving it the information necessary to its own
  * initialization through the {@link Scene#initialize(java.util.HashMap)}
  * function.
  * 
