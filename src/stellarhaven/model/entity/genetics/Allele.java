@@ -7,11 +7,11 @@ package stellarhaven.model.entity.genetics;
  * @author William
  * @param T The type of value to be stored in the allele
  */
-public class Allele<T> implements Comparable<Allele<?>> {
+public class Allele<T> implements Comparable<Allele<T>> {
 
     /**
      * This is the dominance score of this allele. It is used as a criterion for
-     * the {@link #compareTo(Allele)} method.
+     * the {@link Comparable#compareTo(Allele)} method.
      */
     protected int dominanceScore;
 

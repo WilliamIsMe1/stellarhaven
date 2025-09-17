@@ -81,6 +81,8 @@ public final class GamePanel extends JPanel implements Runnable {
      * {@link Scene} by calling {@link Scene#update()}
      */
     public void update() {
+        if (currentScene == null)
+            return;
         currentScene.update();
     }
 
@@ -94,7 +96,9 @@ public final class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(new Color(0,0,0));
         g2.fillRect(0,0,SIZEX*SCALE, SIZEY*SCALE);
-        currentScene.draw(g2);
+        if (currentScene != null) {
+            currentScene.draw(g2);
+        }
         g2.dispose();
     }
 

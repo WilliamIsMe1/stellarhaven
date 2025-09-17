@@ -44,6 +44,7 @@ public class Main {
 
         frame.setVisible(true);
         gp.startGameThread();
+        
         // Load save files
 
         // Start User UI

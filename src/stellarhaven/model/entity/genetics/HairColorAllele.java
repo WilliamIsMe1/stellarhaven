@@ -1,13 +1,15 @@
 package stellarhaven.model.entity.genetics;
 
 /**
- * An allele class for hair color, with it's own enum type
+ * An allele class for hair color, with its own enum type
  * 
  * @author William
  */
 public class HairColorAllele extends Allele<HairColorAllele.Color> {
     /**
-     * An
+     * An enum created for the sole purpose of storing hair colors along with their dominance scores
+     * 
+     * @author William
      */
     public enum Color {
         BLACK(3, new java.awt.Color( 15, 15, 10)),

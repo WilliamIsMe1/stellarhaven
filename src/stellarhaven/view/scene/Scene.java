@@ -10,8 +10,6 @@ import java.util.HashMap;
  */
 public abstract class Scene {
 
-    
-
     /**
      * This function, called 60 times per second, renders the {@link Scene}
      * 

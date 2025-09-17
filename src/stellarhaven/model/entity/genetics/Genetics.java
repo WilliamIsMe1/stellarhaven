@@ -2,10 +2,10 @@ package stellarhaven.model.entity.genetics;
 
 public class Genetics {
     // their hair color
-    AllelePair hairColor;
+    AllelePair<HairColorAllele.Color> hairColor;
 
     // their eye color
-    AllelePair eyeColor;
+    AllelePair<EyeColorAllele.Color> eyeColor;
 
     // their strength
     AllelePair strength;
