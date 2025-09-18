@@ -52,5 +52,16 @@ public class Model implements Serializable {
 
     public void draw(Graphics2D g2, ArrayList<Entity> entitiesToDraw) {
         // This would first draw in the Background object, and then draw the foreground object. Likely, a few new things would need to be passed in.
+
+    }
+    
+    @Override
+    private void writeObject(java.io.ObjectOutputStream oos) {
+
+    }
+
+    @Override
+    private void readObject(java.io.ObjectInputStreamn ois) {
+        
     }
 }
