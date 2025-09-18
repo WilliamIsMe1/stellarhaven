@@ -8,35 +8,48 @@ public class Genetics {
     AllelePair<EyeColorAllele.Color> eyeColor;
 
     // their strength
-    AllelePair strength;
+    AllelePair<Integer> strength;
 
     // their color preference
     AllelePair colorPreference;
 
     // their health
-    AllelePair health;
+    AllelePair<Integer> health;
 
     // their intelligence
-    AllelePair intelligence;
+    AllelePair<Integer> intelligence;
 
     // their happiness modifier
-    AllelePair happiness;
+    AllelePair<Integer> optimism;
 
     // their charisma
-    AllelePair charisma;
+    AllelePair<Integer> charisma;
 
     // their right brain left brain percentages, for whether their intelligence is related to creativity or logic
-    AllelePair hemisphereUsage;
+    AllelePair<Double> hemisphereUsage;
 
     // their gender (Gender type already created, as enum between Male and Female.)
     Gender gender = generateGender();
 
+    /**
+     * Random genetics profile
+     * 
+     * @author William
+     */
     public Genetics() {
 
     }
 
-    public Genetics(AllelePair hairColor, AllelePair eyeColor, AllelePair strength, AllelePair colorPreference, AllelePair health) {
-
+    public Genetics(AllelePair<HairColorAllele.Color> hairColor, AllelePair<EyeColorAllele.Color> eyeColor, AllelePair<Integer> strength, AllelePair colorPreference, AllelePair<Integer> health, AllelePair<Integer> intelligence, AllelePair<Integer> optimism, AllelePair<Integer> charisma, AllelePair<Double> hemisphereUsage) {
+        this.hairColor = hairColor;
+        this.eyeColor = eyeColor;
+        this.strength = strength;
+        this.colorPreference = colorPreference;
+        this.health = health;
+        this.intelligence = intelligence;
+        this.optimism = optimism;
+        this.charisma = charisma;
+        this.hemisphereUsage = hemisphereUsage;
     }
 
     public Genetics(Genetics parent1, Genetics parent2) { // Assume parent1 is female and parent2 is male. Cause I ain't including weird stuff in my game cause progressive values are useless in a reproductive mission where the point is babies

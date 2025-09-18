@@ -6,6 +6,7 @@ package stellarhaven.model.entity.genetics;
  * @author William
  */
 public class HairColorAllele extends Allele<HairColorAllele.Color> {
+    
     /**
      * An enum created for the sole purpose of storing hair colors along with their dominance scores
      * 

@@ -46,7 +46,7 @@ public class Allele<T> implements Comparable<Allele<T>> {
      * @throws IllegalArgumentException if the alleles are of different types
      */
     @Override
-    public int compareTo(Allele<?> o) {
+    public int compareTo(Allele<T> o) {
         if (!o.getClass().equals(this.getClass())) { // If o's class is different to this class
             throw new IllegalArgumentException("Cannot compare alleles of different types."); // Then throw this exception
         }

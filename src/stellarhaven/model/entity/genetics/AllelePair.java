@@ -11,7 +11,10 @@ public class AllelePair<T> {
     final Allele<T> one;
     final Allele<T> two;
 
-    public AllelePair(Allele<T> one, Allele<T> two) {
+    public AllelePair(Allele<T> one, Allele<T> two) throws IllegalArgumentException {
+        if (!one.getClass().equals(two.getClass())) {
+            throw new IllegalArgumentException("Don't combine different allele types!");
+        }
         this.one = one;
         this.two = two;
     }
