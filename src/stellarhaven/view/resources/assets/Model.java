@@ -53,13 +53,11 @@ public class Model implements Serializable {
 
     }
     
-    @Override
     private void writeObject(java.io.ObjectOutputStream oos) {
 
     }
 
-    @Override
-    private void readObject(java.io.ObjectInputStreamn ois) {
+    private void readObject(java.io.ObjectInputStream ois) {
         
     }
 }
