@@ -4,7 +4,6 @@ import stellarhaven.model.entity.Entity;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -47,7 +46,6 @@ public class Model implements Serializable {
     private BufferedImage backgroundTexture; // Also the static image texture
     private BufferedImage foregroundTexture;
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
     public void draw(Graphics2D g2, ArrayList<Entity> entitiesToDraw) {
