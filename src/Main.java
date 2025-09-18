@@ -5,6 +5,8 @@ import stellarhaven.view.resources.AudioResourcePool;
 import stellarhaven.view.resources.ImageResourcePool;
 import stellarhaven.view.resources.ResourcePool;
 
+import java.awt.*;
+
 /**
  * Entry point for Stellar Haven, a game in which you
  * manage a colony of people on a reproductive 
@@ -38,11 +40,13 @@ public class Main {
         GamePanel gp = new GamePanel();
         frame.add(gp);
         frame.setSize(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY);
+        frame.setPreferredSize(new Dimension(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setResizable(false);
         frame.pack();
 
-        frame.setVisible(true);
         gp.startGameThread();
         
         // Load save files

@@ -1,8 +1,7 @@
 package stellarhaven.view;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Color;
+import java.awt.*;
+import java.util.HashMap;
 import javax.swing.JPanel;
 
 import stellarhaven.view.scene.Scene;
@@ -22,6 +21,11 @@ import stellarhaven.view.scene.Scene;
 public final class GamePanel extends JPanel implements Runnable {
 
     private Scene currentScene;
+
+    public GamePanel() {
+        setSize(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY);
+        setPreferredSize(new Dimension(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY));
+    }
     
     /**
      * This is the scale constant that controls the size of a pixel. It is

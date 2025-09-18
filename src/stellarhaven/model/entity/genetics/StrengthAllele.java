@@ -10,8 +10,11 @@ import java.util.HashMap;
  * @author William
  */
 public class StrengthAllele extends Allele<Integer> {
-
-    private HashMap<Integer,Integer> table = new HashMap<>();
+    /**
+     * This is the table that carries the dominance values for instances
+     * of {@link StrengthAllele}.
+     */
+    private final HashMap<Integer,Integer> table = new HashMap<>();
 
     public StrengthAllele(Integer value) {
         super(value);
@@ -24,16 +27,16 @@ public class StrengthAllele extends Allele<Integer> {
 
     private void initializeTable() {
         // le.put(strength,dominance)
-        table.put(1, 2);
-        table.put(2, 4);
-        table.put(3, 6);
-        table.put(4, 8);
+        table.put(1, 1);
+        table.put(2, 2);
+        table.put(3, 3);
+        table.put(4, 6);
         table.put(5, 10);
         table.put(6, 9);
-        table.put(7, 7);
-        table.put(8, 5);
-        table.put(9, 3);
-        table.put(10, 1);
+        table.put(7, 8);
+        table.put(8, 7);
+        table.put(9, 5);
+        table.put(10, 4);
     }
     
 }

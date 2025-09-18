@@ -8,15 +8,17 @@ import java.util.HashMap;
  * A resource pool for loading and caching images.
  * 
  * Usage:
- * 1. Create an instance of ImageResourcePool.
- * 2. Register instance with {@link ResourcePool#createResourcePool(ResourcePool)} to obtain an ID.
- * 3. Use getItem with the image path to load and cache images.
- * 
+ * <ol>
+ * <li>Create an instance of ImageResourcePool.</li>
+ * <li>Register instance with {@link ResourcePool#createResourcePool(ResourcePool)} to obtain an ID.</li>
+ * <li>Use getItem with the image path to load and cache images.</li>
+ * </ol>
+ *
  * @author William
  */
 public class ImageResourcePool extends ResourcePool<BufferedImage> {
 
-    private HashMap<String, BufferedImage> pool = new HashMap<>();
+    private final HashMap<String, BufferedImage> pool = new HashMap<>();
 
     /**
      * Creates a new ImageResourcePool. No initialization is
@@ -26,7 +28,7 @@ public class ImageResourcePool extends ResourcePool<BufferedImage> {
 
     /**
      * Retrieves an image from the pool, loading and caching it
-     * so as to use it for later
+     * to use it for later
      * 
      * @param path The path to the image resource
      * @return The loaded image, or null if loading failed

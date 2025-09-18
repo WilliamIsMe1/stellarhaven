@@ -5,6 +5,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Objects;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -18,10 +20,15 @@ import javax.sound.sampled.AudioSystem;
  */
 public class AudioResourcePool extends ResourcePool<Clip> {
 
+    private final HashMap<String, Clip> clips = new HashMap<>();
+
     @Override
     public Clip getItem(String path) {
+        if (clips.containsKey(path)) {
+            return clips.get(path);
+        }
         Clip audio = null;
-        try (AudioInputStream ais = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(path))) {
+        try (AudioInputStream ais = AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getResourceAsStream(path)))) {
             audio = AudioSystem.getClip();
             audio.open(ais);
         }
@@ -33,7 +40,11 @@ public class AudioResourcePool extends ResourcePool<Clip> {
         } catch (LineUnavailableException e) {
             e.printStackTrace();
             throw new RuntimeException("Looks like a problem with the clips");
+        } catch (NullPointerException e) {
+            System.err.println("Resource not found: " + path);
+            return null;
         }
+        clips.put(path, audio);
         return audio;
     }
     
