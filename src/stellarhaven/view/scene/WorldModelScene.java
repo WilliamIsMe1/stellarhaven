@@ -6,6 +6,8 @@ import java.util.HashMap;
 public class WorldModelScene extends Scene {
 
     private HashMap<String,Double> numProperties = new HashMap<>();
+    
+    private HashMap<String,String> properties = new HashMap<>();
 
     @Override
     public void draw(Graphics2D g2) {
@@ -33,20 +35,12 @@ public class WorldModelScene extends Scene {
 
     @Override
     public String getProperty(String key) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProperty'");
-    }
-
-    @Override
-    public int getIntProperty(String key) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIntProperty'");
+        return properties.getOrDefault(key,"");
     }
 
     @Override
     public double getNumericalProperty(String key) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDoubleProperty'");
+        return numProperties.getOrDefault(key,Double.NaN);
     }
     
 }
