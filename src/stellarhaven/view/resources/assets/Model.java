@@ -24,8 +24,7 @@ import java.util.ArrayList;
  *      {
  *          "texture": "/path/to/texture.png",
  *          "x": 3,
- *          "y": 4,
- *          "z": 3
+ *          "y": 4
  *      }
  *   ]
  *   For static:
@@ -41,12 +40,12 @@ public class Model {
         STATIC
     }
 
-    private ArrayList<ForegroundObject> objects = new ArrayList<>();
+    private ArrayList<ForegroundObject> objects = new ArrayList<>(); // Unnecessary if block type is static
     private BufferedImage backgroundTexture; // Also the static image texture
-    private BufferedImage foregroundTexture;
+    private BufferedImage foregroundTexture; // Also unnecessary if block is static
 
-    public void draw(Graphics2D g2, ArrayList<Entity> entitiesToDraw) {
+    public void draw(Graphics2D g2, ArrayList<Entity> entitiesToDraw, boolean isTransparent) {
         // This would first draw in the Background object, and then draw the foreground object. Likely, a few new things would need to be passed in.
-
+        
     }
 }

@@ -30,6 +30,16 @@ public abstract class Scene {
      * the last one.
      * 
      * @param properties The information the last scene wants to pass to this one
+     * @param numericalProperties The numberical properties the last scene is passing to this one
+     */
+    public abstract void initialize(HashMap<String,String> properties, HashMap<String,Double> numericalProperties);
+
+    /**
+     * This function should be run before any scene starts rendering, because it
+     * initializes the {@link Scene} with the information it should carry from 
+     * the last one.
+     * 
+     * @param properties The information the last scene wants to pass to this one
      */
     public abstract void initialize(HashMap<String,String> properties);
 
@@ -41,4 +51,7 @@ public abstract class Scene {
      */
     public abstract String getProperty(String key);
     
+
+    public abstract double getNumericalProperty(String key);
+
 }
