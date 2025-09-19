@@ -3,7 +3,7 @@ package stellarhaven.view.scene;
 import java.awt.Graphics2D;
 import java.util.HashMap;
 
-public class WorldModelScene extends Scene {
+public class WorldScene extends Scene {
 
     private HashMap<String,Double> numProperties = new HashMap<>();
     
