@@ -1,6 +1,6 @@
 package stellarhaven.model.entity;
 
-import stellarhaven.model.Coord;
+import stellarhaven.util.Coord;
 
 /**
  * A base class for all entities in the game

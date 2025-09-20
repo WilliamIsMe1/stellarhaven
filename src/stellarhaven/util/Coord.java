@@ -1,4 +1,4 @@
-package stellarhaven.model;
+package stellarhaven.util;
 
 /**
  * @author William
@@ -6,7 +6,7 @@ package stellarhaven.model;
  * @param y y coordinate
  */
 public class Coord {
-    private int x, y;
+    public final int x, y;
 
     /**
      * Creates a new coordinate with the given x and y values
@@ -25,14 +25,6 @@ public class Coord {
     public Coord(Coord other) {
         this.x = other.x;
         this.y = other.y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     @Override

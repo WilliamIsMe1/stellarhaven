@@ -3,34 +3,37 @@ package stellarhaven.view.scene;
 import java.awt.Graphics2D;
 import java.util.HashMap;
 
+import stellarhaven.model.SpaceStation;
+
 public class WorldScene extends Scene {
 
-    private HashMap<String,Double> numProperties = new HashMap<>();
+    private int offsetX = 0, offsetY = 0;
+
+    private HashMap<String,Double> numericalProperties = new HashMap<>();
     
     private HashMap<String,String> properties = new HashMap<>();
 
+    private SpaceStation station = new SpaceStation();
+
     @Override
     public void draw(Graphics2D g2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'draw'");
+        station.draw(g2, offsetX, offsetY);
     }
 
     @Override
     public void update() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        
     }
 
     @Override
     public void initialize(HashMap<String, String> properties, HashMap<String, Double> numericalProperties) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
+        this.properties = properties;
+        this.numericalProperties = numericalProperties;
     }
 
     @Override
     public void initialize(HashMap<String, String> properties) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
+        this.properties = properties;
     }
 
     @Override
@@ -40,7 +43,7 @@ public class WorldScene extends Scene {
 
     @Override
     public double getNumericalProperty(String key) {
-        return numProperties.getOrDefault(key,Double.NaN);
+        return numericalProperties.getOrDefault(key,Double.NaN);
     }
     
 }

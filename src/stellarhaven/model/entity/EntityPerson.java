@@ -1,8 +1,8 @@
 package stellarhaven.model.entity;
 
-import stellarhaven.model.Coord;
 import stellarhaven.model.entity.genetics.Gender;
 import stellarhaven.model.entity.genetics.Genetics;
+import stellarhaven.util.Coord;
 
 public final class EntityPerson extends Entity {
     public EntityPerson(Coord location, Coord subLocation) {
