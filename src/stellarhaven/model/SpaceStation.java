@@ -19,7 +19,7 @@ public class SpaceStation implements Serializable {
         for (Map.Entry<Coord, Structure> tile : world.entrySet()) {
             Coord currentCoord = tile.getKey();
             Structure currentStructure = tile.getValue();
-            Coord screenCoord = IsometricUtils;
+            Coord screenCoord = IsometricUtils.fromIsometric(tile.getKey());
             // TODO: finish draw code
         }
     }

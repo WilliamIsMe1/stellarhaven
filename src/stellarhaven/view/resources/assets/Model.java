@@ -48,4 +48,14 @@ public class Model {
         // This would first draw in the Background object, and then draw the foreground object. Likely, a few new things would need to be passed in.
         
     }
+
+    public Model(BufferedImage staticTexture) {
+        backgroundTexture = staticTexture;
+    }
+
+    public Model(BufferedImage foregroundTexture, BufferedImage backgroundTexture, ArrayList<ForegroundObject> objects) {
+        this.foregroundTexture = foregroundTexture;
+        this.backgroundTexture = backgroundTexture;
+        this.objects = objects;
+    }
 }

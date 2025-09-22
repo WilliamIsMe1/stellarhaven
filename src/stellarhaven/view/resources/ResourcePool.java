@@ -42,7 +42,7 @@ public abstract class ResourcePool<T> { // My class
      * @param id The ID of the desired {@link ResourcePool}
      * @return The {@link ResourcePool} associated with the given ID, or `null` if not found
      */
-    public ResourcePool<?> getPool(int id) {
+    public static ResourcePool<?> getPool(int id) {
         if (!pools.containsKey(id)) throw new ArrayIndexOutOfBoundsException("No resource pool carries this ID at this moment: " + id);
         return pools.get(id);
     }
