@@ -15,6 +15,11 @@ import java.awt.*;
  * @author William
  */
 public class Main {
+
+    public static final int IMAGE_POOL = 0;
+    public static final int AUDIO_POOL = 1;
+    public static final int MODEL_POOl = 2;
+
     /**
      * Entry point main method for program
      */
