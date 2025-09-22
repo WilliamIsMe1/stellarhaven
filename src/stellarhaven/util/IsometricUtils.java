@@ -4,18 +4,21 @@ public class IsometricUtils implements Constants {
     private IsometricUtils() {}
 
     public static Coord calculateIsometric(Coord c) {
-        return new Coord((c.x - c.y) * TILE_X_SIZE / 2 + TILE_X_SIZE/2, (c.x + c.y) * TILE_Y_SIZE / 4 + TILE_X_SIZE/2); // Transform, multiply by tile size divided by 2, then center.
+        return new Coord((c.x - c.y) / 2 , (c.x + c.y) / 4);
     }
 
     public static Coord calculateIsometric(int x, int y) {
         return calculateIsometric(new Coord(x, y));
     }
 
-    public Coord fromIsometric(Coord c) {
-        return new Coord((int) (c.x / TILE_X_SIZE + 2 * c.y / TILE_Y_SIZE - 0.5 - TILE_X_SIZE / TILE_Y_SIZE), (int) (-c.x / TILE_X_SIZE + 2 * c.y / TILE_Y_SIZE + 0.5 - TILE_X_SIZE / TILE_Y_SIZE));
+    public static Coord fromIsometric(Coord c) {
+        int originalX = c.x + 2 * c.y;
+        int originalY = 2 * c.y - c.x;
+        return new Coord(originalX, originalY);
     }
 
-    public Coord fromIsometric(int x, int y) {
+
+    public static Coord fromIsometric(int x, int y) {
         return fromIsometric(new Coord(x, y));
     }
 }
