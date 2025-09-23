@@ -3,6 +3,15 @@ package stellarhaven.view.resources.assets;
 import java.awt.image.BufferedImage;
 
 public class ForegroundObject {
+
+    public ForegroundObject(BufferedImage image, int x, int y) {
+        this.width = image.getWidth();
+        this.height = image.getHeight();
+        this.x = x;
+        this.y = y;
+        this.image = image;
+    }
+
     public int getHeight() {
         return height;
     }
