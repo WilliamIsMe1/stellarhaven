@@ -15,13 +15,7 @@ public class SpaceStation implements Serializable {
     HashMap<Coord, Structure> world = new HashMap<>();
     HashMap<Structure, ArrayList<Entity>> entities = new HashMap<>();
     public void draw(Graphics2D g2, int offsetX, int offsetY) {
-        ArrayList<Structure> zIndexCoords = new ArrayList<>();
-        for (Map.Entry<Coord, Structure> tile : world.entrySet()) {
-            Coord currentCoord = tile.getKey();
-            Structure currentStructure = tile.getValue();
-            Coord screenCoord = IsometricUtils.fromIsometric(tile.getKey());
-            // TODO: finish draw code
-        }
+
     }
 
 

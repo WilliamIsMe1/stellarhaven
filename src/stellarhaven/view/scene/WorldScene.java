@@ -4,10 +4,11 @@ import java.awt.Graphics2D;
 import java.util.HashMap;
 
 import stellarhaven.model.SpaceStation;
+import stellarhaven.util.Coord;
 
 public class WorldScene extends Scene {
 
-    private int offsetX = 0, offsetY = 0;
+    private Coord offset;
 
     private HashMap<String,Double> numericalProperties = new HashMap<>();
     
@@ -17,7 +18,7 @@ public class WorldScene extends Scene {
 
     @Override
     public void draw(Graphics2D g2) {
-        station.draw(g2, offsetX, offsetY);
+        // First, draw the background as a repeating tile image that looks like the surface of the moon in isometric
     }
 
     @Override

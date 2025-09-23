@@ -63,7 +63,7 @@ public class ModelResourcePool extends ResourcePool<Model> {
                 return null;
             } catch (ClassCastException e) {
                 System.err.println("It appears that either " + path + " is not formatted correctly or you have a bug in the parsing code.");
-                return null.
+                return null;
             }
         }
         return models.get(path);
