@@ -2,6 +2,7 @@ package stellarhaven.view.resources.assets;
 
 import stellarhaven.util.Constants;
 import stellarhaven.util.Coord;
+import stellarhaven.view.GamePanel;
 import stellarhaven.view.resources.ResourcePool;
 
 import java.awt.*;
@@ -15,8 +16,10 @@ public class MoonBackground extends Background {
     @Override
     public void draw(Graphics2D g2, Coord offset) {
         Coord transformedOffset;
-        int x = offset.x; // Mod this by the screen size;
-        // TODO: Do the same on the y
+        int x = offset.x % (GamePanel.SCALE * GamePanel.SIZEX); // Mod this by the screen size;
+        int y = offset.y % (GamePanel.SCALE * GamePanel.SIZEY);
 
+        transformedOffset = new Coord(x, y);
+        
     }
 }

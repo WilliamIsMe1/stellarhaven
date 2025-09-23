@@ -1,10 +1,11 @@
 package stellarhaven.view.resources.assets;
 
-import stellarhaven.view.util.Drawable;
-
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public abstract class Background implements Drawable {
+import stellarhaven.util.Coord;
+
+public abstract class Background {
     private BufferedImage background;
     protected Background(BufferedImage background) {
         this.background = background;
@@ -12,4 +13,5 @@ public abstract class Background implements Drawable {
     public BufferedImage getBackground() {
         return background;
     }
+    public abstract void draw(Graphics2D g2, Coord offset);
 }

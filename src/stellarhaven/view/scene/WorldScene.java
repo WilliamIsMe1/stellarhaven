@@ -5,10 +5,14 @@ import java.util.HashMap;
 
 import stellarhaven.model.SpaceStation;
 import stellarhaven.util.Coord;
+import stellarhaven.view.resources.assets.Background;
+import stellarhaven.view.resources.assets.MoonBackground;
 
 public class WorldScene extends Scene {
 
-    private Coord offset;
+    private Coord offset = new Coord(0, 0);
+
+    private Background backgroundObj = new MoonBackground();
 
     private HashMap<String,Double> numericalProperties = new HashMap<>();
     
@@ -19,6 +23,7 @@ public class WorldScene extends Scene {
     @Override
     public void draw(Graphics2D g2) {
         // First, draw the background as a repeating tile image that looks like the surface of the moon in isometric
+        
     }
 
     @Override
