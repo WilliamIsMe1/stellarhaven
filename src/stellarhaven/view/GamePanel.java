@@ -31,7 +31,7 @@ public final class GamePanel extends JPanel implements Runnable {
      * This is the scale constant that controls the size of a pixel. It is
      * 6x6 right now.
      */
-    public static final int SCALE = 6;
+    public static final int SCALE = 3;
     
     /**
      * This is the width of the window in mixels, with each mixel being
