@@ -18,8 +18,18 @@ public class MoonBackground extends Background {
         Coord transformedOffset;
         int x = offset.x % (GamePanel.SCALE * GamePanel.SIZEX); // Mod this by the screen size;
         int y = offset.y % (GamePanel.SCALE * GamePanel.SIZEY);
+        int sizeX = GamePanel.SCALE * GamePanel.SIZEX;
+        int sizeY = GamePanel.SCALE * GamePanel.SIZEY;
 
         transformedOffset = new Coord(x, y);
-        
+        g2.drawImage(getBackground(), x - sizeX, y - sizeY, sizeX, sizeY, null);
+        g2.drawImage(getBackground(), x - sizeX, y, sizeX, sizeY, null);
+        g2.drawImage(getBackground(), x - sizeX, y + sizeX, sizeX, sizeY, null);
+        g2.drawImage(getBackground(), x, y - sizeY, sizeX, sizeY, null);
+        g2.drawImage(getBackground(), x, y, sizeX, sizeY, null);
+        g2.drawImage(getBackground(), x, y + sizeX, sizeX, sizeY, null);
+        g2.drawImage(getBackground(), x + sizeX, y - sizeY, sizeX, sizeY, null);
+        g2.drawImage(getBackground(), x + sizeX, y, sizeX, sizeY, null);
+        g2.drawImage(getBackground(), x + sizeX, y + sizeX, sizeX, sizeY, null);
     }
 }
