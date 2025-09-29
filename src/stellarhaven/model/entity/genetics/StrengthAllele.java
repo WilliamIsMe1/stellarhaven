@@ -38,5 +38,17 @@ public class StrengthAllele extends Allele<Integer> {
         table.put(9, 5);
         table.put(10, 4);
     }
+
+    @Override
+    public Integer getValue() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getValue'");
+    }
+
+    @Override
+    public void mutate() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mutate'");
+    }
     
 }

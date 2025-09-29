@@ -40,4 +40,16 @@ public class EyeColorAllele extends Allele<EyeColorAllele.Color> {
     public EyeColorAllele() {
         this(Color.values()[(int)(Math.random() * Color.values().length)]);
     }
+
+    @Override
+    public Color getValue() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getValue'");
+    }
+
+    @Override
+    public void mutate() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mutate'");
+    }
 }

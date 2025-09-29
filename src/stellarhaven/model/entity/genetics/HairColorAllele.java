@@ -13,8 +13,8 @@ public class HairColorAllele extends Allele<HairColorAllele.Color> {
      * @author William
      */
     public enum Color {
-        BLACK(3, new java.awt.Color( 15, 15, 10)),
-        BROWN(2, new java.awt.Color( 92, 64, 51)),
+        BLACK(3, new java.awt.Color(15, 15, 10)),
+        BROWN(2, new java.awt.Color(92, 64, 51)),
         BLONDE(1, new java.awt.Color(213, 192, 127)),
         RED(0, new java.awt.Color(149, 60, 48));
         public final int dominanceScore;
@@ -32,5 +32,17 @@ public class HairColorAllele extends Allele<HairColorAllele.Color> {
 
     public HairColorAllele() {
         this(Color.values()[(int)(Math.random() * Color.values().length)]);
+    }
+
+    @Override
+    public Color getValue() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getValue'");
+    }
+
+    @Override
+    public void mutate() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mutate'");
     }
 }

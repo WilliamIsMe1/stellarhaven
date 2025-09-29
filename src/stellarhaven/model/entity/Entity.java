@@ -1,5 +1,7 @@
 package stellarhaven.model.entity;
 
+import java.awt.Graphics2D;
+
 import stellarhaven.util.Coord;
 
 /**
@@ -31,4 +33,6 @@ public abstract class Entity {
         this.location = location;
         this.subLocation = subLocation;
     }
+
+    public abstract void draw(Graphics2D g2, Coord offset);
 }

@@ -38,4 +38,12 @@ public class Coord {
         Coord o = (Coord) other;
         return (o.x == x) && (o.y == y);
     }
+
+    public Coord add(Coord other) {
+        return new Coord(other.x + x, other.y + y);
+    }
+
+    public Coord multiply(int other) {
+        return new Coord(x*other,y*other);
+    }
 }
