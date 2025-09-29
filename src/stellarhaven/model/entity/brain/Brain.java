@@ -10,4 +10,14 @@ import stellarhaven.model.entity.Entity;
 public class Brain {
     ArrayList<Goal> goals;
     Entity parent;
+    /**
+     * Skills are here. I'm not sure how to store them yet.
+     * The kinds of skills that need to be stored are 
+     * * Fine motor skills
+     * * Computer skills
+     * * Mechanical skills
+     * * Gardening skills
+     * Each structure requires a specific set of jobs, that each require certain skills
+     */
+    
 }
