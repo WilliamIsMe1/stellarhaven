@@ -25,6 +25,7 @@ public final class GamePanel extends JPanel implements Runnable {
     public GamePanel() {
         setSize(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY);
         setPreferredSize(new Dimension(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY));
+        setDoubleBuffered(true);
     }
     
     /**
