@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import stellarhaven.util.Coord;
 
 public abstract class Background {
-    private BufferedImage background;
+    private final BufferedImage background;
     protected Background(BufferedImage background) {
         this.background = background;
     }
