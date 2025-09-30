@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 
 import stellarhaven.view.scene.Scene;
+import stellarhaven.view.scene.WorldScene;
 
 /**
  * This is the class that manages the rendering component of the game, and
@@ -20,7 +21,7 @@ import stellarhaven.view.scene.Scene;
  */
 public final class GamePanel extends JPanel implements Runnable {
 
-    private Scene currentScene;
+    private Scene currentScene = new WorldScene();
 
     public GamePanel() {
         setSize(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY);
