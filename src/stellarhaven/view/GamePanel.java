@@ -1,9 +1,14 @@
 package stellarhaven.view;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseMotionListener;
 import java.util.HashMap;
 import javax.swing.JPanel;
 
+import stellarhaven.util.MouseEventType;
 import stellarhaven.view.scene.Scene;
 import stellarhaven.view.scene.WorldScene;
 
@@ -19,7 +24,7 @@ import stellarhaven.view.scene.WorldScene;
  * 
  * @author William
  */
-public final class GamePanel extends JPanel implements Runnable {
+public final class GamePanel extends JPanel implements Runnable, MouseMotionListener, MouseListener {
 
     private Scene currentScene = new WorldScene();
 
@@ -114,5 +119,40 @@ public final class GamePanel extends JPanel implements Runnable {
     public void startGameThread() {
         Thread currentThread = new Thread(this);
         currentThread.start();
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        currentScene.passMouseEvent(e, MouseEventType.CLICK);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        currentScene.passMouseEvent(e, MouseEventType.DRAG);
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        currentScene.passMouseEvent(e, MouseEventType.MOVE);
     }
 }

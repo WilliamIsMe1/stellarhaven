@@ -1,7 +1,10 @@
 package stellarhaven.view.scene;
 
+import stellarhaven.util.MouseEventType;
+
 import java.awt.Graphics2D;
 import java.util.HashMap;
+import java.awt.event.MouseEvent;
 
 /**
  * A class representing a scene, with methods to draw and update
@@ -9,6 +12,8 @@ import java.util.HashMap;
  * @author William
  */
 public abstract class Scene {
+
+    protected
 
     /**
      * This function, called 60 times per second, renders the {@link Scene}
@@ -54,4 +59,5 @@ public abstract class Scene {
 
     public abstract double getNumericalProperty(String key);
 
+    public abstract void passMouseEvent(MouseEvent e, MouseEventType type);
 }

@@ -53,5 +53,6 @@ public class WorldScene extends Scene {
     public double getNumericalProperty(String key) {
         return numericalProperties.getOrDefault(key,Double.NaN);
     }
-    
+
+
 }
