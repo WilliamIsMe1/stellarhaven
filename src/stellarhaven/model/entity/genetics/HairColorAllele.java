@@ -36,8 +36,7 @@ public class HairColorAllele extends Allele<HairColorAllele.Color> {
 
     @Override
     public Color getValue() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getValue'");
+        return value;
     }
 
     @Override
