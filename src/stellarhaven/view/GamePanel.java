@@ -9,6 +9,7 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 
 import stellarhaven.util.MouseEventType;
+
 import stellarhaven.view.scene.Scene;
 import stellarhaven.view.scene.WorldScene;
 
