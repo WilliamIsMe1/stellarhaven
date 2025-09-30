@@ -18,17 +18,63 @@
     "chat.agent.thinkingStyle": "expanded",
     "editor.fontLigatures": false,
     "workbench.colorCustomizations": {
-        "editor.foreground": "#ffffff",
-        "editorPane.background": "#000000",
         "editor.background": "#000000",
-        "activityBar.background": "#000000",
-        "activityBar.inactiveForeground": "#00ff00",
-        "activityBar.foreground": "#00ff00",
-        "statusBar.background": "#000000",
-        "tab.activeBackground": "#000000",
-        "tab.activeBorderTop": "#00ff00",
-        "panel.background": "#000000"
-
+        "sideBar.background": "#000000",
+        "sideBar.foreground": "#00ff00",
+        "sideBarTitle.foreground": "#00ff00",
+        "sideBarSectionHeader.foreground": "#00ff00"
     },
-    "workbench.iconTheme": "vs-minimal"
+    "workbench.iconTheme": "vs-minimal",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "keyword.control",
+                    "keyword",
+                    "storage.modifier",
+                    "storage.type.primitive.java",
+                    "keyword.operator.new"
+                ],
+                "settings": {
+                    "foreground": "#ff00ff",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": [
+                    "entity.name.type"
+                ],
+                "settings": {
+                    "foreground": "#00ffff"
+                }
+            },
+            {
+                "scope": "variable.java",
+                "settings": {
+                    "foreground": "#8877ff"
+                }
+            },
+            {
+                "scope": [
+                    "comment.java",
+                    "comment.block",
+                    "comment.block.java"
+                ],
+                "settings": {
+                    "foreground": "#00ff00"
+                }
+            },
+            {
+                "scope": [
+                    "keyword.operator",
+                    "keyword.operator.assignment",
+                    "keyword.operator.arithmetic",
+                    "keyword.operator.logical"
+                ],
+                "settings": {
+                    "foreground": "#ff0000"
+                }
+            }
+        ]
+    }
 }
