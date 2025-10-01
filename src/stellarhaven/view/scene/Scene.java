@@ -1,8 +1,10 @@
 package stellarhaven.view.scene;
 
 import stellarhaven.util.MouseEventType;
+import stellarhaven.util.Pair;
 
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.MouseEvent;
 
@@ -13,7 +15,7 @@ import java.awt.event.MouseEvent;
  */
 public abstract class Scene {
 
-    protected
+    protected ArrayList<Pair<MouseEvent, MouseEventType>> unprocessedEvents = new ArrayList<>();
 
     /**
      * This function, called 60 times per second, renders the {@link Scene}
@@ -59,5 +61,8 @@ public abstract class Scene {
 
     public abstract double getNumericalProperty(String key);
 
-    public abstract void passMouseEvent(MouseEvent e, MouseEventType type);
+    public void passMouseEvent(MouseEvent e, MouseEventType type) {
+        Pair<MouseEvent, MouseEventType> duo = new Pair<>(e,type);
+        unprocessedEvents.add(duo);
+    }
 }

@@ -17,4 +17,5 @@
     "chat.agent.enabled": false,
     "chat.agent.thinkingStyle": "expanded",
     "editor.fontLigatures": false,
+    "workbench.iconTheme": "vs-minimal"
 }

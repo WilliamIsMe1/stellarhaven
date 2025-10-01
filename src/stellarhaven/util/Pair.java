@@ -1,6 +1,6 @@
 package stellarhaven.util;
 
-public sealed class Pair<K, V> permits IdenticalPair {
+public final class Pair<K, V> {
     private final K one;
     private final V two;
 
@@ -31,9 +31,13 @@ public sealed class Pair<K, V> permits IdenticalPair {
         return false;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(one, two);
+    }
+
     private boolean hasOverriddenEqualsAndHashCode(Class<?> clazz) {
         try {
-            // Check if a more specific equals method exists than Object's
             clazz.getDeclaredMethod("equals", Object.class);
             clazz.getDeclaredMethod("hashCode");
             return true;
