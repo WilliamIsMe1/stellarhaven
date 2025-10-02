@@ -1,11 +1,18 @@
 package stellarhaven.util;
 
+import java.util.Objects;
+import org.jetbrains.annotations.NotNull;
+
 public final class Pair<K, V> {
     private final K one;
     private final V two;
 
     public Pair(K one, V two) {
-        if (!hasOverriddenEqualsAndHashCode(one.getClass()) && !hasOverriddenEqualsAndHashCode(two.getClass())) {
+        this(one, two, false);
+    }
+
+    public Pair(@NotNull K one, @NotNull V two, boolean suppressEqualsWarning) {
+        if (!hasOverriddenEqualsAndHashCode(one.getClass()) && !hasOverriddenEqualsAndHashCode(two.getClass()) && !suppressEqualsWarning) {
             throw new IllegalArgumentException("Please override your .equals() and .hashCode()");
         }
         this.one = one;

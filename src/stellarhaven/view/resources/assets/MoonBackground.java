@@ -26,19 +26,16 @@ public class MoonBackground extends Background {
     public void draw(Graphics2D g2, Coord offset) {
 
 
-        int x = offset.x % (GamePanel.SCALE * GamePanel.SIZEX); // Mod this by the screen size;
-        int y = offset.y % (GamePanel.SCALE * GamePanel.SIZEY);
-        int sizeX = GamePanel.SCALE * GamePanel.SIZEX;
-        int sizeY = GamePanel.SCALE * GamePanel.SIZEY;
+        int x = offset.x % (GamePanel.SCALE * GamePanel.SIZEX / 4); // Mod this by the screen size;
+        int y = offset.y % (GamePanel.SCALE * GamePanel.SIZEY / 4);
+        int sizeX = GamePanel.SCALE * GamePanel.SIZEX / 4;
+        int sizeY = GamePanel.SCALE * GamePanel.SIZEY / 4;
+        for (int i = -1; i < 5; i++) {
+            for (int j = -1; j < 5; j++) {
+                g2.drawImage(getBackground(), x + sizeX * i, y + sizeY * j, sizeX, sizeY, null);
+            }
+        }
 
-        g2.drawImage(getBackground(), x - sizeX, y - sizeY, sizeX, sizeY, null);
-        g2.drawImage(getBackground(), x - sizeX, y, sizeX, sizeY, null);
-        g2.drawImage(getBackground(), x - sizeX, y + sizeX, sizeX, sizeY, null);
-        g2.drawImage(getBackground(), x, y - sizeY, sizeX, sizeY, null);
-        g2.drawImage(getBackground(), x, y, sizeX, sizeY, null);
-        g2.drawImage(getBackground(), x, y + sizeX, sizeX, sizeY, null);
-        g2.drawImage(getBackground(), x + sizeX, y - sizeY, sizeX, sizeY, null);
-        g2.drawImage(getBackground(), x + sizeX, y, sizeX, sizeY, null);
-        g2.drawImage(getBackground(), x + sizeX, y + sizeX, sizeX, sizeY, null);
+
     }
 }

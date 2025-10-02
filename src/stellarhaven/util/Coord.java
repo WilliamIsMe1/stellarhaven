@@ -46,4 +46,9 @@ public class Coord {
     public Coord multiply(int other) {
         return new Coord(x*other,y*other);
     }
+
+    @Override
+    public String toString() {
+        return "Coord[" + x + ", " + y + "]";
+    }
 }

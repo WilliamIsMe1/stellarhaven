@@ -12,6 +12,8 @@ public abstract class Structure {
     protected Model texture;
 
     public void draw(Graphics2D g2, Coord parentCoord) {
-        
+        texture.draw(g2, entities, false, parentCoord);
     }
+
+    public abstract void update();
 }

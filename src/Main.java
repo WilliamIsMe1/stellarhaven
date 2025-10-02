@@ -3,6 +3,7 @@ import javax.swing.JFrame;
 import stellarhaven.view.GamePanel;
 import stellarhaven.view.resources.AudioResourcePool;
 import stellarhaven.view.resources.ImageResourcePool;
+import stellarhaven.view.resources.ModelResourcePool;
 import stellarhaven.view.resources.ResourcePool;
 
 import java.awt.*;
@@ -32,6 +33,12 @@ public class Main {
         int audioPool = ResourcePool.createResourcePool(audio);
         if (audioPool != 1) {
             System.err.println(audioPool + " is not 1");
+            System.exit(-1);
+        }
+        ResourcePool<?> model = new ModelResourcePool();
+        int modelPool = ResourcePool.createResourcePool(model);
+        if (modelPool != 2) {
+            System.err.println(modelPool + " is not 2");
             System.exit(-1);
         }
         

@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.MouseEvent;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * A class representing a scene, with methods to draw and update
@@ -15,7 +17,7 @@ import java.awt.event.MouseEvent;
  */
 public abstract class Scene {
 
-    protected ArrayList<Pair<MouseEvent, MouseEventType>> unprocessedEvents = new ArrayList<>();
+    protected List<Pair<MouseEvent, MouseEventType>> unprocessedEvents = new CopyOnWriteArrayList<>();
 
     /**
      * This function, called 60 times per second, renders the {@link Scene}
@@ -62,7 +64,7 @@ public abstract class Scene {
     public abstract double getNumericalProperty(String key);
 
     public void passMouseEvent(MouseEvent e, MouseEventType type) {
-        Pair<MouseEvent, MouseEventType> duo = new Pair<>(e,type);
+        Pair<MouseEvent, MouseEventType> duo = new Pair<>(e,type,true);
         unprocessedEvents.add(duo);
     }
 }

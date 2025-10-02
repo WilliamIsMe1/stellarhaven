@@ -22,7 +22,7 @@ import stellarhaven.view.scene.WorldScene;
  * 
  * @author William
  */
-public final class GamePanel extends JPanel implements Runnable, MouseMotionListener, MouseListener {
+public final class GamePanel extends JPanel implements Runnable {
 
     @SuppressWarnings("FieldMayBeFinal")
     private Scene currentScene = new WorldScene();
@@ -31,6 +31,9 @@ public final class GamePanel extends JPanel implements Runnable, MouseMotionList
         setSize(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY);
         setPreferredSize(new Dimension(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY));
         setDoubleBuffered(true);
+        GamePanelListener myListener = new GamePanelListener();
+        addMouseListener(myListener);
+        addMouseMotionListener(myListener);
     }
     
     /**
@@ -43,13 +46,13 @@ public final class GamePanel extends JPanel implements Runnable, MouseMotionList
      * This is the width of the window in mixels, with each mixel being
      * 6x6 pixels, as per the {@link GamePanel#SCALE} constant.
      */
-    public static final int SIZEX = 128;
+    public static final int SIZEX = 256;
 
     /**
      * This is the height of the window in mixels, with each mixel being
      * 6x6 pixels, as per the {@link GamePanel#SCALE} constant.
      */
-    public static final int SIZEY = 128;
+    public static final int SIZEY = 256;
 
     /**
      * This is the FPS of the game, with both {@link GamePanel#update()}
@@ -120,38 +123,40 @@ public final class GamePanel extends JPanel implements Runnable, MouseMotionList
         currentThread.start();
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        currentScene.passMouseEvent(e, MouseEventType.CLICK);
-    }
+    private class GamePanelListener implements MouseMotionListener, MouseListener {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            currentScene.passMouseEvent(e, MouseEventType.CLICK);
+        }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
+        @Override
+        public void mousePressed(MouseEvent e) {
 
-    }
+        }
 
-    @Override
-    public void mouseReleased(MouseEvent e) {
+        @Override
+        public void mouseReleased(MouseEvent e) {
 
-    }
+        }
 
-    @Override
-    public void mouseEntered(MouseEvent e) {
+        @Override
+        public void mouseEntered(MouseEvent e) {
 
-    }
+        }
 
-    @Override
-    public void mouseExited(MouseEvent e) {
+        @Override
+        public void mouseExited(MouseEvent e) {
 
-    }
+        }
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        currentScene.passMouseEvent(e, MouseEventType.DRAG);
-    }
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            currentScene.passMouseEvent(e, MouseEventType.DRAG);
+        }
 
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        currentScene.passMouseEvent(e, MouseEventType.MOVE);
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            currentScene.passMouseEvent(e, MouseEventType.MOVE);
+        }
     }
 }

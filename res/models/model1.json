@@ -1,0 +1,8 @@
+{
+  "type": "block",
+  "foreground": "/texture/testforeground.png",
+  "background": "/texture/testbackground.png",
+  "objects": [
+
+  ]
+}

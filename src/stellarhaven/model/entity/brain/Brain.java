@@ -3,7 +3,9 @@ package stellarhaven.model.entity.brain;
 import java.util.ArrayList;
 
 import stellarhaven.model.entity.Entity;
+import stellarhaven.model.entity.EntityPerson;
 import stellarhaven.util.Coord;
+import stellarhaven.util.Pair;
 
 /**
  * This brain executes goals for {@link Entity} instances
