@@ -6,9 +6,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.HashMap;
 import javax.swing.JPanel;
-
 import stellarhaven.util.MouseEventType;
-
 import stellarhaven.view.scene.Scene;
 import stellarhaven.view.scene.WorldScene;
 
@@ -26,6 +24,7 @@ import stellarhaven.view.scene.WorldScene;
  */
 public final class GamePanel extends JPanel implements Runnable, MouseMotionListener, MouseListener {
 
+    @SuppressWarnings("FieldMayBeFinal")
     private Scene currentScene = new WorldScene();
 
     public GamePanel() {
