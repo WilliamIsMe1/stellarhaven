@@ -55,4 +55,5 @@ public abstract class Allele<T> implements Comparable<Allele<T>> {
      * 
      */
     public abstract void mutate();
+
 }

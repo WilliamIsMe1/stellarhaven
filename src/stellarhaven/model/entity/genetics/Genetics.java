@@ -11,7 +11,7 @@ public class Genetics {
     AllelePair<Integer> strength;
 
     // their color preference
-    AllelePair colorPreference;
+    AllelePair<ColorPreferenceAllele.Color> colorPreference;
 
     // their health
     AllelePair<Integer> health;
@@ -37,10 +37,10 @@ public class Genetics {
      * @author William
      */
     public Genetics() {
-
+        colorPreference = new AllelePair<>(ColorPreferenceAllele.getSupplier());
     }
 
-    public Genetics(AllelePair<HairColorAllele.Color> hairColor, AllelePair<EyeColorAllele.Color> eyeColor, AllelePair<Integer> strength, AllelePair colorPreference, AllelePair<Integer> health, AllelePair<Integer> intelligence, AllelePair<Integer> optimism, AllelePair<Integer> charisma, AllelePair<Double> hemisphereUsage) {
+    public Genetics(AllelePair<HairColorAllele.Color> hairColor, AllelePair<EyeColorAllele.Color> eyeColor, AllelePair<Integer> strength, AllelePair<ColorPreferenceAllele.Color> colorPreference, AllelePair<Integer> health, AllelePair<Integer> intelligence, AllelePair<Integer> optimism, AllelePair<Integer> charisma, AllelePair<Double> hemisphereUsage) {
         this.hairColor = hairColor;
         this.eyeColor = eyeColor;
         this.strength = strength;
@@ -53,7 +53,9 @@ public class Genetics {
     }
 
     public Genetics(Genetics parent1, Genetics parent2) { // Assume parent1 is female and parent2 is male. Cause I ain't including weird stuff in my game cause progressive values are useless in a reproductive mission where the point is babies
-
+        if (parent1.getGender() == parent2.getGender()) {
+            throw new IllegalArgumentException("I'm sorry, but biology does not allow this to happen.");
+        }
     }
 
     private Gender generateGender() {
@@ -63,4 +65,10 @@ public class Genetics {
     public Gender getGender() {
         return gender;
     }
+    
+    public ColorPreferenceAllele.Color getColorPreference() {
+        return colorPreference.getDominantAllele().getValue();
+    }
+
+    
 }

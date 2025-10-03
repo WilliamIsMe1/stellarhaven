@@ -1,5 +1,7 @@
 package stellarhaven.model.entity.genetics;
 
+import java.util.Random;
+import java.util.function.Supplier;
 
 /**
  * An {@link AllelePair} represents a pair of {@link Allele} instances
@@ -10,6 +12,7 @@ package stellarhaven.model.entity.genetics;
 public class AllelePair<T> {
     final Allele<T> one;
     final Allele<T> two;
+    final boolean preference;
 
     public AllelePair(Allele<T> one, Allele<T> two) throws IllegalArgumentException {
         if (!one.getClass().equals(two.getClass())) {
@@ -17,11 +20,14 @@ public class AllelePair<T> {
         }
         this.one = one;
         this.two = two;
+        preference = new Random().nextBoolean();
     }
 
     public Allele<T> getDominantAllele() {
         if (one.compareTo(two) > 0) {
             return one;
+        } else if (one.compareTo(two) == 0) {
+            return preference ? one : two;
         }
         return two;
     }
@@ -33,4 +39,9 @@ public class AllelePair<T> {
         return new AllelePair(alleleFromParent1, alleleFromParent2);
     }
 
+    public AllelePair(Supplier<Allele<T>> supplier) {
+        one = supplier.get();
+        two = supplier.get();
+        preference = new Random().nextBoolean();
+    }
 }
