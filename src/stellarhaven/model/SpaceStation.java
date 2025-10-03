@@ -1,15 +1,14 @@
 package stellarhaven.model;
-import stellarhaven.model.structure.StructureBlock;
-import stellarhaven.util.Constants;
-import stellarhaven.util.Coord;
-import stellarhaven.util.IsometricUtils;
-
 import java.awt.Graphics2D;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import stellarhaven.model.structure.StructureBlock;
+import stellarhaven.util.Constants;
+import stellarhaven.util.Coord;
+import stellarhaven.util.IsometricUtils;
 
 public class SpaceStation implements Serializable {
 
@@ -42,9 +41,8 @@ public class SpaceStation implements Serializable {
         for (Map.Entry<Coord, Structure> e : sortedWorld) {
             e.getValue().draw(
                 g2, 
-                IsometricUtils.calculateIsometric(e.getKey())
-                    .multiply(Constants.TILE_SIZE/2)
-                    .multiply(Constants.GAME_SCALE)
+                IsometricUtils.calculateIsometric(e.getKey().multiply(Constants.TILE_SIZE/2)
+                    .multiply(Constants.GAME_SCALE))
                     .add(offset)
             ); // Draw it where it is. We can do culling later.
         }

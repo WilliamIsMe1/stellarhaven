@@ -17,5 +17,9 @@
     "chat.agent.enabled": false,
     "chat.agent.thinkingStyle": "expanded",
     "editor.fontLigatures": false,
-    "workbench.iconTheme": "vs-minimal"
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.colorCustomizations": {
+        "panel.background": "#000000",
+        "editor.background": "#000000"
+    }
 }

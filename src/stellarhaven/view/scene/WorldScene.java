@@ -3,13 +3,10 @@ package stellarhaven.view.scene;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
-import java.util.logging.Logger;
-
 import stellarhaven.model.SpaceStation;
 import stellarhaven.util.Coord;
-import stellarhaven.util.Pair;
 import stellarhaven.util.MouseEventType;
-import stellarhaven.view.LoggerUtils;
+import stellarhaven.util.Pair;
 import stellarhaven.view.resources.assets.Background;
 import stellarhaven.view.resources.assets.MoonBackground;
 
