@@ -4,6 +4,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import stellarhaven.util.Constants;
+import stellarhaven.view.resources.assets.Model;
+import stellarhaven.view.resources.assets.ForegroundObject;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -11,10 +14,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
-
-import stellarhaven.util.Constants;
-import stellarhaven.view.resources.assets.Model;
-import stellarhaven.view.resources.assets.ForegroundObject;
 
 /**
  * This class creates and retrieves {@link Model} objects in a massive pool.
@@ -24,48 +23,69 @@ public class ModelResourcePool extends ResourcePool<Model> {
 
     @Override
     public Model getItem(String path) {
-        if (!models.containsKey(path)) {
-            try (InputStreamReader re = new InputStreamReader(Objects.requireNonNull(this.getClass().getClassLoader().getResourceAsStream(path)))) {
-                // Eughh, some whitespace, please.
-                JsonElement parsed = JsonParser.parseReader(re);
-                JsonObject obj = parsed.getAsJsonObject();
-                String type = obj.get("type").getAsString();
-                if (type.equals("block")) {
-                    String path2 = obj.get("background").getAsString(); // background
-                    String path3 = obj.get("foreground").getAsString(); // foreground
-                    JsonArray objList = obj.get("objects").getAsJsonArray(); // objects
-                    ArrayList<ForegroundObject> foregroundObjects = new ArrayList<>();
-                    for (JsonElement jE : objList) {
-                        JsonObject obj2 = jE.getAsJsonObject();
-                        String path4 = obj2.get("texture").getAsString();
-                        int x1 = obj2.get("x").getAsInt();
-                        int y1 = obj2.get("y").getAsInt();
-                        BufferedImage img2 = (BufferedImage) ResourcePool.getPool(Constants.IMAGE_POOL).getItem(path4);
-                        ForegroundObject foregroundObject = new ForegroundObject(img2, x1, y1);
-                        foregroundObjects.add(foregroundObject);
-                    }
-                    BufferedImage img3 = (BufferedImage) ResourcePool.getPool(Constants.IMAGE_POOL).getItem(path2); // Background
-                    BufferedImage img4 = (BufferedImage) ResourcePool.getPool(Constants.IMAGE_POOL).getItem(path3); // Foreground
-                    Model m2 = new Model(img4, img3, foregroundObjects);
-                    models.put(path, m2);
-                } else if (type.equals("static")) {
-                    String path1 = obj.get("texture").getAsString();
-                    BufferedImage img1 = (BufferedImage) ResourcePool.getPool(Constants.IMAGE_POOL).getItem(path1);
-                    Model m1 = new Model(img1);
-                    models.put(path, m1);
-                } else {
-                    throw new ClassCastException("You have bad file or code");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (NullPointerException e) {
-                System.err.println("It appears that " + path + " does not exist");
-                return null;
-            } catch (ClassCastException e) {
-                System.err.println("It appears that either " + path + " is not formatted correctly or you have a bug in the parsing code.");
-                return null;
-            }
+        if (models.containsKey(path)) return models.get(path);
+
+        JsonObject modelJson = loadJson(path);
+        if (modelJson == null) return null;
+
+        try {
+            Model model = createModelFromJson(modelJson);
+            models.put(path, model);
+            return model;
+        } catch (Exception e) {
+            System.err.println("Failed to create model from " + path + ": " + e.getMessage());
+            return null;
         }
-        return models.get(path);
+    }
+
+    private JsonObject loadJson(String path) {
+        try (InputStreamReader reader = new InputStreamReader(
+                Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(path)))) {
+            JsonElement parsed = JsonParser.parseReader(reader);
+            return parsed.getAsJsonObject();
+        } catch (IOException e) {
+            System.err.println("Problems loading model: " + path);
+        } catch (NullPointerException e) {
+            System.err.println("Resource does not exist: " + path);
+        }
+        return null;
+    }
+
+    private Model createModelFromJson(JsonObject modelJson) {
+        String type = modelJson.get("type").getAsString();
+
+        return switch (type) {
+            case "static" -> createStaticModel(modelJson);
+            case "block" -> createBlockModel(modelJson);
+            default -> throw new IllegalArgumentException("Unknown model type: " + type);
+        };
+    }
+
+    private Model createStaticModel(JsonObject json) {
+        String texturePath = json.get("texture").getAsString();
+        BufferedImage texture = (BufferedImage) ResourcePool.getPool(Constants.IMAGE_POOL).getItem(texturePath);
+        return new Model(texture);
+    }
+
+    private Model createBlockModel(JsonObject json) {
+        String backgroundPath = json.get("background").getAsString();
+        String foregroundPath = json.get("foreground").getAsString();
+        JsonArray objectsArray = json.get("objects").getAsJsonArray();
+
+        ArrayList<ForegroundObject> foregroundObjects = new ArrayList<>();
+        for (JsonElement element : objectsArray) {
+            JsonObject obj = element.getAsJsonObject();
+            String texturePath = obj.get("texture").getAsString();
+            int x = obj.get("x").getAsInt();
+            int y = obj.get("y").getAsInt();
+
+            BufferedImage texture = (BufferedImage) ResourcePool.getPool(Constants.IMAGE_POOL).getItem(texturePath);
+            foregroundObjects.add(new ForegroundObject(texture, x, y));
+        }
+
+        BufferedImage background = (BufferedImage) ResourcePool.getPool(Constants.IMAGE_POOL).getItem(backgroundPath);
+        BufferedImage foreground = (BufferedImage) ResourcePool.getPool(Constants.IMAGE_POOL).getItem(foregroundPath);
+
+        return new Model(foreground, background, foregroundObjects);
     }
 }
