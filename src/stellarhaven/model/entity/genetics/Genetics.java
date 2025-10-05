@@ -41,6 +41,8 @@ public class Genetics {
         strength = new AllelePair<>(StrengthAllele.getSupplier());
         hairColor = new AllelePair<>(HairColorAllele.getSupplier());
         eyeColor = new AllelePair<>(EyeColorAllele.getSupplier());
+        health = new AllelePair<>(HealthAllele.getSupplier());
+        intelligence = new AllelePair<>(IntelligenceAllele.getSupplier());
 
     }
 
@@ -84,6 +86,14 @@ public class Genetics {
 
     public ColorPreferenceAllele.Color getColorPreference() {
         return colorPreference.getDominantAllele().getValue();
+    }
+
+    public Integer getHealth() {
+        return health.getDominantAllele().getValue();
+    }
+
+    public Integer getIntelligence() {
+        return health.getDominantAllele().getValue();
     }
 
 }
