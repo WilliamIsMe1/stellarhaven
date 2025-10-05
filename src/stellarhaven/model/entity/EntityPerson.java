@@ -2,8 +2,6 @@ package stellarhaven.model.entity;
 
 import java.awt.Graphics2D;
 import java.util.Objects;
-
-import com.sun.tools.jconsole.JConsoleContext;
 import stellarhaven.model.entity.genetics.Gender;
 import stellarhaven.model.entity.genetics.Genetics;
 import stellarhaven.util.Constants;
