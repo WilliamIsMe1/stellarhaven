@@ -5,30 +5,30 @@ import java.util.Random;
 import java.util.function.Supplier;
 
 /**
- * This is the allele for intelligence, for the {@link Genetics} class.
- * 
- * Intelligence goes from 1 to 10, 5 average.
- * 
+ * This is the allele for charisma, for the {@link Genetics} class.
+ *
+ * Charisma goes from 1 to 10, 5 average.
+ *
  * @author William
  */
-public class IntelligenceAllele extends Allele<Integer> {
+public class CharismaAllele extends Allele<Integer> {
     /**
      * This is the table that carries the dominance values for instances
-     * of {@link IntelligenceAllele}.
+     * of {@link CharismaAllele}.
      */
     private final HashMap<Integer,Integer> table = new HashMap<>();
 
-    public IntelligenceAllele(Integer value) {
+    public CharismaAllele(Integer value) {
         super(value);
         initializeTable();
         if (!table.containsKey(value)) {
-            throw new IllegalArgumentException("I'm afraid that the intelligence value of: " + value + " is illegal.");
+            throw new IllegalArgumentException("I'm afraid that the charisma value of: " + value + " is illegal.");
         }
         this.dominanceScore = table.get(value);
     }
 
     private void initializeTable() {
-        // le.put(intelligence,dominance)
+        // le.put(charisma,dominance)
         table.put(1, 1);
         table.put(2, 2);
         table.put(3, 3);
@@ -59,14 +59,14 @@ public class IntelligenceAllele extends Allele<Integer> {
             if (!upOrDown)
                 value--;
         } else {
-            throw new IllegalStateException("IntelligenceAllele instances are not supposed to be above 10 or below 1");
+            throw new IllegalStateException("CharismaAllele instances are not supposed to be above 10 or below 1");
         }
     }
-    
+
     public static Supplier<Allele<Integer>> getSupplier() { // This returns 5 on average
         return () -> {
-            int intelligence = (((int) (Math.random()*10) + 1) + ((int) (Math.random()*10) + 1) + ((int) (Math.random()*10) + 1)) / 3;
-            return new IntelligenceAllele(intelligence);
+            int charisma = (((int) (Math.random()*10) + 1) + ((int) (Math.random()*10) + 1) + ((int) (Math.random()*10) + 1)) / 3;
+            return new CharismaAllele(charisma);
         };
     }
 }

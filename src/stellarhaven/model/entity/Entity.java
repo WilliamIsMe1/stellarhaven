@@ -3,6 +3,7 @@ package stellarhaven.model.entity;
 import java.awt.Graphics2D;
 
 import stellarhaven.util.Coord;
+import stellarhaven.util.Drawable;
 
 /**
  * A base class for all entities in the game
@@ -11,7 +12,7 @@ import stellarhaven.util.Coord;
  * 
  * @author William
  */
-public abstract class Entity {
+public abstract class Entity implements Drawable {
 
     /**
      * Location of entity in tiles
@@ -34,5 +35,6 @@ public abstract class Entity {
         this.subLocation = subLocation;
     }
 
+    @Override
     public abstract void draw(Graphics2D g2, Coord offset);
 }

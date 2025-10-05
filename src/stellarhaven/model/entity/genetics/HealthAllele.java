@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 /**
  * This is the allele for health, for the {@link Genetics} class.
  * 
- * Strength goes from 1 to 10, 5 average.
+ * Health goes from 1 to 10, 5 average.
  * 
  * @author William
  */

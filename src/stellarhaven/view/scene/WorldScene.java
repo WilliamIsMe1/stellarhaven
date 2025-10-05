@@ -14,6 +14,10 @@ public class WorldScene extends Scene {
 
     private Coord offset = new Coord(0, 0);
 
+    public Coord getOffset() {
+        return offset;
+    }
+
     private Coord lastMouseCoord = new Coord(0, 0);
 
     private final Background background = new MoonBackground();

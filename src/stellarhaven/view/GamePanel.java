@@ -35,6 +35,10 @@ public final class GamePanel extends JPanel implements Runnable {
         addMouseListener(myListener);
         addMouseMotionListener(myListener);
     }
+
+    public Scene getCurrentScene() {
+        return currentScene;
+    }
     
     /**
      * This is the scale constant that controls the size of a pixel. It is

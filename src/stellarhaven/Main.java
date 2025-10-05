@@ -1,3 +1,5 @@
+package stellarhaven;
+
 import javax.swing.JFrame;
 
 import stellarhaven.view.GamePanel;
@@ -16,6 +18,8 @@ import java.awt.*;
  * @author William
  */
 public class Main {
+
+    public static GamePanel gp;
 
     /**
      * Entry point main method for program
@@ -45,7 +49,7 @@ public class Main {
         
         // Start main game window
         JFrame frame = new JFrame("Stellar Haven");
-        GamePanel gp = new GamePanel();
+        gp = new GamePanel();
         frame.add(gp);
         frame.setSize(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY);
         frame.setPreferredSize(new Dimension(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY));
