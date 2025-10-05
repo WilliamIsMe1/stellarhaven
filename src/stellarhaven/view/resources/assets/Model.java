@@ -60,7 +60,7 @@ public class Model {
             ArrayList<Drawable> drawableArrayList = new ArrayList<>(entitiesToDraw);
             drawableArrayList.addAll(objects);
 
-            drawableArrayList.sort();
+            // drawableArrayList.sort();
 
             g2.drawImage(foregroundTexture, parentCoord.x, parentCoord.y, Constants.TILE_SIZE * Constants.GAME_SCALE, Constants.TILE_SIZE * Constants.GAME_SCALE, null);
         }
