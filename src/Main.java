@@ -44,7 +44,7 @@ public class Main {
         
         
         // Start main game window
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Stellar Haven");
         GamePanel gp = new GamePanel();
         frame.add(gp);
         frame.setSize(GamePanel.SCALE * GamePanel.SIZEX, GamePanel.SCALE * GamePanel.SIZEY);
