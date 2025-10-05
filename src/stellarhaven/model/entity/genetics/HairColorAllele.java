@@ -1,5 +1,8 @@
 package stellarhaven.model.entity.genetics;
 
+import java.util.Random;
+import java.util.function.Supplier;
+
 /**
  * An allele class for hair color, with its own enum type
  * 
@@ -43,5 +46,12 @@ public class HairColorAllele extends Allele<HairColorAllele.Color> {
     public void mutate() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mutate'");
+    }
+
+    public static Supplier<Allele<HairColorAllele.Color>> getSupplier() {
+        return () -> {
+            Color[] values = Color.values();
+            return new HairColorAllele(values[new Random().nextInt()]);
+        };
     }
 }

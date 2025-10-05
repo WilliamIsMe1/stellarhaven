@@ -38,6 +38,10 @@ public class Genetics {
      */
     public Genetics() {
         colorPreference = new AllelePair<>(ColorPreferenceAllele.getSupplier());
+        strength = new AllelePair<>(StrengthAllele.getSupplier());
+        hairColor = new AllelePair<>(HairColorAllele.getSupplier());
+        eyeColor = new AllelePair<>(EyeColorAllele.getSupplier());
+
     }
 
     public Genetics(AllelePair<HairColorAllele.Color> hairColor, AllelePair<EyeColorAllele.Color> eyeColor, AllelePair<Integer> strength, AllelePair<ColorPreferenceAllele.Color> colorPreference, AllelePair<Integer> health, AllelePair<Integer> intelligence, AllelePair<Integer> optimism, AllelePair<Integer> charisma, AllelePair<Double> hemisphereUsage) {
@@ -65,10 +69,21 @@ public class Genetics {
     public Gender getGender() {
         return gender;
     }
+
+    public HairColorAllele.Color getHairColor() {
+        return hairColor.getDominantAllele().getValue();
+    }
+
+    public EyeColorAllele.Color getEyeColor() {
+        return eyeColor.getDominantAllele().getValue();
+    }
     
+    public Integer getStrength() {
+        return strength.getDominantAllele().getValue();
+    }
+
     public ColorPreferenceAllele.Color getColorPreference() {
         return colorPreference.getDominantAllele().getValue();
     }
 
-    
 }

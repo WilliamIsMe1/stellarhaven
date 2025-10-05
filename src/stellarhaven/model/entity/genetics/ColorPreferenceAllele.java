@@ -39,6 +39,9 @@ public class ColorPreferenceAllele extends Allele<ColorPreferenceAllele.Color> {
         }
     }
 
+    /**
+     * This gives a new random Color allele. Pseudorandom, but it works.
+     */
     public static Supplier<Allele<ColorPreferenceAllele.Color>> getSupplier() {
         return () -> {
             Color[] values = Color.values();

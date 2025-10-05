@@ -1,5 +1,8 @@
 package stellarhaven.model.entity.genetics;
 
+import java.util.Random;
+import java.util.function.Supplier;
+
 /**
  * An allele class for eye color, with an accompaning enum
  * 
@@ -51,5 +54,12 @@ public class EyeColorAllele extends Allele<EyeColorAllele.Color> {
     public void mutate() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mutate'");
+    }
+
+    public static Supplier<Allele<EyeColorAllele.Color>> getSupplier() {
+        return () -> {
+            Color[] values = Color.values();
+            return new EyeColorAllele(values[new Random().nextInt()]);
+        };
     }
 }
