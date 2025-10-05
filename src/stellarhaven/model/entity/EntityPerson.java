@@ -42,7 +42,8 @@ public final class EntityPerson extends Entity {
     }
 
     private Coord fetchOffset() {
-        return ((WorldScene) stellarhaven.Main.gp.getCurrentScene()).getOffset();
+        return ((WorldScene) stellarhaven.Main.gp.getCurrentScene()).getOffset(); // I hate these messy solutions
+        // TODO: FIX THIS CRAP
     }
 
     @Override

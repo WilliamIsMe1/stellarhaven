@@ -38,11 +38,11 @@ public class ForegroundObject implements Drawable {
         return x;
     }
 
-    private int x;
-    private int y;
-    private BufferedImage image;
-    private int width;
-    private int height;
+    private final int x;
+    private final int y;
+    private final BufferedImage image;
+    private final int width;
+    private final int height;
 
     @Override
     public void draw(Graphics2D g2, Coord parentCoord) {
