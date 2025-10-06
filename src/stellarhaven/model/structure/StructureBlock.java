@@ -15,4 +15,5 @@ public class StructureBlock extends Structure {
     public void update() {
 
     }
+
 }

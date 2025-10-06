@@ -4,11 +4,14 @@ import stellarhaven.util.Constants;
 import stellarhaven.util.Coord;
 import stellarhaven.util.Drawable;
 import stellarhaven.util.IsometricUtils;
+import stellarhaven.view.scene.WorldScene;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class ForegroundObject implements Drawable {
+
+    private Coord parentCoord;
 
     public ForegroundObject(BufferedImage image, int x, int y) {
         this.width = image.getWidth();
@@ -16,6 +19,11 @@ public class ForegroundObject implements Drawable {
         this.x = x;
         this.y = y;
         this.image = image;
+        parentCoord = new Coord(0, 0);
+    }
+    
+    public void updateParentCoord(Coord parentCoord) {
+        this.parentCoord = parentCoord;
     }
 
     public int getHeight() {
@@ -31,12 +39,18 @@ public class ForegroundObject implements Drawable {
     }
 
     public int getY() {
-        return y;
+        return IsometricUtils.calculateIsometric(x,y)
+                .add(parentCoord)
+                .y;
     }
 
     public int getX() {
-        return x;
+        return IsometricUtils.calculateIsometric(x,y)
+                .add(parentCoord)
+                .x;
     }
+
+    
 
     private final int x;
     private final int y;

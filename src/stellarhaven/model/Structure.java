@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import stellarhaven.model.entity.Entity;
 import stellarhaven.util.Coord;
+import stellarhaven.util.Drawable;
 import stellarhaven.view.resources.assets.Model;
 
 public abstract class Structure {

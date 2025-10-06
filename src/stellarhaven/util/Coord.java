@@ -2,8 +2,6 @@ package stellarhaven.util;
 
 /**
  * @author William
- * @param x x coordinate
- * @param y y coordinate
  */
 public class Coord {
     public final int x, y;

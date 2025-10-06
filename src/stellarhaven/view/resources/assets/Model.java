@@ -1,5 +1,6 @@
 package stellarhaven.view.resources.assets;
 
+import org.jetbrains.annotations.NotNull;
 import stellarhaven.model.entity.Entity;
 import stellarhaven.util.Constants;
 import stellarhaven.util.Coord;
@@ -52,15 +53,24 @@ public class Model {
     private BufferedImage backgroundTexture; // Also the static image texture
     private BufferedImage foregroundTexture; // Also unnecessary if block is static
 
-    public void draw(Graphics2D g2, ArrayList<Entity> entitiesToDraw, boolean isTransparent, Coord parentCoord) {
+    public void draw(Graphics2D g2, @NotNull ArrayList<Entity> entitiesToDraw, boolean isTransparent, Coord parentCoord) {
         // This would first draw in the Background object, and then draw the foreground object. Likely, a few new things would need to be passed in.
         g2.drawImage(backgroundTexture, parentCoord.x, parentCoord.y, Constants.TILE_SIZE * Constants.GAME_SCALE, Constants.TILE_SIZE * Constants.GAME_SCALE, null);
         if (type == BLOCK) {
             // Here you'd draw foreground objects and entities based on Z index
-            ArrayList<Drawable> drawableArrayList = new ArrayList<>(entitiesToDraw);
+            ArrayList<Drawable> drawableArrayList = new ArrayList<>();
             drawableArrayList.addAll(objects);
+            drawableArrayList.addAll(entitiesToDraw);
+            for (ForegroundObject f: objects) {
+                f.updateParentCoord(parentCoord);
+            }
 
-            // drawableArrayList.sort();
+            drawableArrayList.sort((a,b) -> {
+                int a_y = a.getY();
+                int b_y = b.getY();
+                return b_y - a_y;
+
+            });
 
             g2.drawImage(foregroundTexture, parentCoord.x, parentCoord.y, Constants.TILE_SIZE * Constants.GAME_SCALE, Constants.TILE_SIZE * Constants.GAME_SCALE, null);
         }
