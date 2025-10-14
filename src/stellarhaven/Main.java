@@ -13,6 +13,7 @@ public class Main {
     public static GamePanel gp;
 
     public static void main(String[] args) {
+        
         ResourcePool<?> images = new ImageResourcePool();
         int imagePool = ResourcePool.createResourcePool(images);
         if (imagePool != 0) {
