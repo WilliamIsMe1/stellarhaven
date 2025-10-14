@@ -23,7 +23,7 @@ public class WorldScene extends Scene {
     private final Background background = new MoonBackground();
 
     private HashMap<String,Double> numericalProperties = new HashMap<>();
-    
+
     private HashMap<String,String> properties = new HashMap<>();
 
     private SpaceStation station = new SpaceStation();
@@ -39,18 +39,18 @@ public class WorldScene extends Scene {
     @Override
     public void update() {
         while (!unprocessedEvents.isEmpty()) {
-            Pair<MouseEvent,MouseEventType> pair = unprocessedEvents.removeFirst();
+            Pair<MouseEvent,MouseEventType> pair = unprocessedEvents.remove(0);
             int lastX = lastMouseCoord.x;
             int lastY = lastMouseCoord.y;
             int deltaX = pair.getOne().getX() - lastX;
             int deltaY = pair.getOne().getY() - lastY;
             switch (pair.getTwo()) {
-                case MouseEventType.DRAG:
+                case DRAG:
                     offset = offset.add(new Coord(deltaX, deltaY));
-                case MouseEventType.MOVE:
+                case MOVE:
                     lastMouseCoord = new Coord(pair.getOne().getX(), pair.getOne().getY());
                     break;
-                case MouseEventType.CLICK:
+                case CLICK:
                     handleClickEvent(pair.getOne().getX(), pair.getOne().getY());
                     break;
                 default:
