@@ -1,5 +1,5 @@
 package stellarhaven.test;
 
-public class FailedResult {
+public sealed class FailedResult extends Result {
 	
 }
