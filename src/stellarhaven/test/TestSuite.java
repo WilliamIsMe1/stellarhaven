@@ -6,8 +6,10 @@ import java.util.ArrayList;
  *
  * @author William
  */
-public class TestSuite {
+public abstract class TestSuite {
 	private ArrayList<Test> tests = new ArrayList<>();
 
+	public abstract void initializeSuite();
 
+	public abstract void runTests();
 }
