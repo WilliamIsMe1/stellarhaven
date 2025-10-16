@@ -6,7 +6,7 @@ public final class InfoResult extends Result {
 	}
 
 	@Override
-	public Result.Type getResultType() {
-		return Result.Type.INFO;
+	public Type getResultType() {
+		return Type.INFO;
 	}
 }

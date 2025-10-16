@@ -45,12 +45,6 @@ public class EyeColorAllele extends Allele<EyeColorAllele.Color> {
     }
 
     @Override
-    public Color getValue() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getValue'");
-    }
-
-    @Override
     public void mutate() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mutate'");

@@ -10,11 +10,6 @@ public class ColorPreferenceAllele extends Allele<ColorPreferenceAllele.Color> {
     }
 
     @Override
-    public Color getValue() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public void mutate() {
         throw new UnsupportedOperationException("Not supported yet.");
     }

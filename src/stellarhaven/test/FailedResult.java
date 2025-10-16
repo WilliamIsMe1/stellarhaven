@@ -6,7 +6,7 @@ public final class FailedResult extends Result {
 	}
 
 	@Override
-	public Result.Type getResultType() {
-		return Result.Type.FAILURE;
+	public Type getResultType() {
+		return Type.FAILURE;
 	}
 }

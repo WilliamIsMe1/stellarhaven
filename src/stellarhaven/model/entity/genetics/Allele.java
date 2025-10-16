@@ -5,13 +5,12 @@ package stellarhaven.model.entity.genetics;
  * allele has a {@link #dominanceScore}, which is used to determine which allele is dominant
  * 
  * @author William
- * @param T The type of value to be stored in the allele
  */
 public abstract class Allele<T> implements Comparable<Allele<T>> {
 
     /**
      * This is the dominance score of this allele. It is used as a criterion for
-     * the {@link Comparable#compareTo(Allele)} method.
+     * the compareTo method.
      */
     protected int dominanceScore;
 
@@ -25,7 +24,9 @@ public abstract class Allele<T> implements Comparable<Allele<T>> {
      * 
      * @return The value carried by the allele.
      */
-    public abstract T getValue();
+    public T getValue() {
+        return value;
+    }
 
     /**
      * Constructs an allele with the given value.

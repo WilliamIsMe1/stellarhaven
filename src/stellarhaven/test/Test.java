@@ -1,9 +1,6 @@
 package stellarhaven.test;
 
-import java.util.function.FunctionalInterface;
-
-/**This interface is meant to be a returned lambda by classes trying to get themselves tested. {@link Testable} will be an interface to show a class
- * can be tested.
+/**This interface is meant to be a lambda that runs tests
  *
  * @author William
  */

@@ -27,6 +27,7 @@ public class CharismaAllele extends Allele<Integer> {
         this.dominanceScore = table.get(value);
     }
 
+    @SuppressWarnings("DuplicatedCode")
     private void initializeTable() {
         // le.put(charisma,dominance)
         table.put(1, 1);
@@ -41,10 +42,6 @@ public class CharismaAllele extends Allele<Integer> {
         table.put(10, 1);
     }
 
-    @Override
-    public Integer getValue() {
-        return value;
-    }
 
     @Override
     public void mutate() {

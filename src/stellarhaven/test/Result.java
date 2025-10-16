@@ -5,6 +5,10 @@ public abstract sealed class Result permits InfoResult, FailedResult, SuccessRes
 	protected String message;
 	protected Object info;
 
+	public Result(String message) {
+		this(message, null);
+	}
+
 	public Result(String message, Object info) {
 		this.message = message;
 		this.info = info;
@@ -18,9 +22,17 @@ public abstract sealed class Result permits InfoResult, FailedResult, SuccessRes
 		INFO
 	}
 
+	public Object getInfo() {
+		return info;
+	}
+
 	public void printMessage() {
+		System.out.print(switch(getResultType()) {
+			case SUCCESS -> "\033]31m";
+            case FAILURE -> "\033]32m";
+            case INFO -> "\033]90m";
+        });
 		System.out.println(message);
 	}
 
-	
 }

@@ -3,6 +3,9 @@ package stellarhaven;
 import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+
+import stellarhaven.test.AllTestsSuite;
+import stellarhaven.test.TestSuite;
 import stellarhaven.view.GamePanel;
 import stellarhaven.view.resources.AudioResourcePool;
 import stellarhaven.view.resources.ImageResourcePool;
@@ -13,7 +16,14 @@ public class Main {
     public static GamePanel gp;
 
     public static void main(String[] args) {
-        
+        if (args.length <= 1) {
+            if (args[0].equals("--test")) {
+                TestSuite allTests = new AllTestsSuite();
+                return;
+            }
+        }
+
+
         ResourcePool<?> images = new ImageResourcePool();
         int imagePool = ResourcePool.createResourcePool(images);
         if (imagePool != 0) {

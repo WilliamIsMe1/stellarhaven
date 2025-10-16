@@ -5,9 +5,13 @@ public final class SuccessResult extends Result {
 		super(message, info);
 	}
 
+	public SuccessResult(String message) {
+		this(message, null);
+	}
+
 	@Override
-	public Result.Type getResultType() {
-		return Result.Type.SUCCESS;
+	public Type getResultType() {
+		return Type.SUCCESS;
 	}
 	
 }
