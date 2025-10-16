@@ -3,7 +3,7 @@ package stellarhaven.test;
 public abstract sealed class Result permits InfoResult, FailedResult, SuccessResult {
 
 	protected String message;
-	protected String info;
+	protected Object info;
 
 	public Result(String message, Object info) {
 		this.message = message;
