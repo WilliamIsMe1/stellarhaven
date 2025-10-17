@@ -16,9 +16,10 @@ public class Main {
     public static GamePanel gp;
 
     public static void main(String[] args) {
-        if (args.length <= 1) {
+        if (args.length >= 1) {
             if (args[0].equals("--test")) {
                 TestSuite allTests = new AllTestsSuite();
+                allTests.runTests();
                 return;
             }
         }

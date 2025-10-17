@@ -32,7 +32,12 @@ public abstract sealed class Result permits InfoResult, FailedResult, SuccessRes
             case FAILURE -> "\033]32m";
             case INFO -> "\033]90m";
         });
-		System.out.println(message);
+		System.out.print(message);
+		if (info == null) {
+			System.out.println();
+			return;
+		}
+		System.out.println(" " + info);
 	}
 
 }

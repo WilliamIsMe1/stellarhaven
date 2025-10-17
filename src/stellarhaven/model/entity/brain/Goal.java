@@ -10,7 +10,7 @@ public abstract class Goal {
     /**
      * 
      * @param host This is the host that your life depends upon
-     * @return Whether or not {@link Goal} is met
+     * @return Whether {@link Goal} is met
      */
     public abstract boolean pursue(Entity host);
 }
