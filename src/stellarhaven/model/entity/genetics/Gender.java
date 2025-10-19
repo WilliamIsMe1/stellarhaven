@@ -1,6 +1,16 @@
 package stellarhaven.model.entity.genetics;
 
-public enum Gender {
+import stellarhaven.test.Test;
+import stellarhaven.util.Equatable;
+
+public enum Gender implements Equatable {
     MALE,
-    FEMALE
+    FEMALE;
+
+    public static Test getGenderTest() {
+        return () -> {
+
+            return null;
+        };
+    }
 }

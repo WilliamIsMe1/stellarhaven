@@ -19,6 +19,7 @@ public class Main {
         if (args.length >= 1) {
             if (args[0].equals("--test")) {
                 TestSuite allTests = new AllTestsSuite();
+                allTests.runTests();
                 return;
             }
         }

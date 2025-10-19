@@ -1,8 +1,11 @@
 package stellarhaven.test;
 
+import stellarhaven.model.entity.genetics.Gender;
+
 public class AllTestsSuite extends TestSuite {
     @Override
     public void initializeSuite() {
-        // Look at all classes to check for suites.
+        tests.add(Gender.getGenderTest());
+
     }
 }

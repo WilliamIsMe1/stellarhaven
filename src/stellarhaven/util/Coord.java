@@ -3,7 +3,7 @@ package stellarhaven.util;
 /**
  * @author William
  */
-public class Coord {
+public class Coord implements Equatable {
     public final int x, y;
 
     /**
