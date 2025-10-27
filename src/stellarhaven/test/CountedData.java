@@ -21,18 +21,16 @@ public class CountedData<T extends Equatable> {
         return currentDataCounted.get(o) == null ? 0 : currentDataCounted.get(o);
     }
 
-    public void displaySideways() {
+    public String displaySideways() {
+        StringBuilder sb = new StringBuilder();
         int highWidth = getCount(getHighest());
         for (T entry : currentDataCounted.keySet()) {
-            System.out.print(entry + "[");
-            for (int i = 0; i < getCount(entry); i++) {
-                System.out.print("#");
-            }
-            for (int j = getCount(entry); j < highWidth; j++) {
-                System.out.print(".");
-            }
-            System.out.println("] " + getCount(entry));
+            sb.append(entry).append("[");
+            sb.append("#".repeat(Math.max(0, getCount(entry))));
+            sb.append(".".repeat(Math.max(0, highWidth - getCount(entry))));
+            sb.append("] ").append(getCount(entry));
         }
+        return sb.toString();
     }
 
     public T getHighest() {
@@ -45,6 +43,10 @@ public class CountedData<T extends Equatable> {
             }
         }
         return highest;
+    }
+
+    public String toString() {
+        return displaySideways();
     }
 
 }
