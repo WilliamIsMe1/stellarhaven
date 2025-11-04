@@ -4,9 +4,9 @@ import stellarhaven.util.MouseEventType;
 import stellarhaven.util.Pair;
 
 import java.awt.Graphics2D;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.MouseEvent;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -66,5 +66,13 @@ public abstract class Scene {
     public void passMouseEvent(MouseEvent e, MouseEventType type) {
         Pair<MouseEvent, MouseEventType> duo = new Pair<>(e,type,true);
         unprocessedEvents.add(duo);
+    }
+
+    public Pair<MouseEvent, MouseEventType> popNextUnprocessedMouseEvent() {
+        Iterator<Pair<MouseEvent, MouseEventType>> iterator = unprocessedEvents.iterator();
+        if (!iterator.hasNext()) return null;
+        var val = iterator.next();
+        unprocessedEvents.remove(val);
+        return val;
     }
 }

@@ -39,7 +39,7 @@ public class WorldScene extends Scene {
     @Override
     public void update() {
         while (!unprocessedEvents.isEmpty()) {
-            Pair<MouseEvent,MouseEventType> pair = unprocessedEvents.remove(0);
+            Pair<MouseEvent,MouseEventType> pair = popNextUnprocessedMouseEvent();
             int lastX = lastMouseCoord.x;
             int lastY = lastMouseCoord.y;
             int deltaX = pair.getOne().getX() - lastX;
