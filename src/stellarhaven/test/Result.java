@@ -27,11 +27,11 @@ public abstract sealed class Result permits InfoResult, FailedResult, SuccessRes
 	}
 
 	public void printMessage() {
-		System.out.print(switch(getResultType()) {
-			case SUCCESS -> "\033]31m";
-            case FAILURE -> "\033]32m";
-            case INFO -> "\033]90m";
-        });
+//		System.out.print(switch(getResultType()) {
+//			case SUCCESS -> "\033]31m";
+//            case FAILURE -> "\033]32m";
+//            case INFO -> "\033]90m";
+//        });
 		System.out.print(message);
 		if (info == null) {
 			System.out.println();

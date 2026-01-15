@@ -10,6 +10,7 @@ import stellarhaven.view.GamePanel;
 import stellarhaven.view.resources.AudioResourcePool;
 import stellarhaven.view.resources.ImageResourcePool;
 import stellarhaven.view.resources.ModelResourcePool;
+
 import stellarhaven.view.resources.ResourcePool;
 
 public class Main {
@@ -19,6 +20,7 @@ public class Main {
         if (args.length >= 1) {
             if (args[0].equals("--test")) {
                 TestSuite allTests = new AllTestsSuite();
+                allTests.initializeSuite();
                 allTests.runTests();
                 return;
             }

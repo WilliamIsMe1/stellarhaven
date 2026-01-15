@@ -1,5 +1,7 @@
 package stellarhaven.model.entity.genetics;
 
+import java.util.Random;
+
 public class Genetics {
     // their hair color
     AllelePair<HairColorAllele.Color> hairColor;
@@ -28,8 +30,8 @@ public class Genetics {
     // their right brain left brain percentages, for whether their intelligence is related to creativity or logic
     AllelePair<Double> hemisphereUsage;
 
-    // their gender (Gender type already created, as enum between Male and Female.)
-    Gender gender = generateGender();
+    // their sex (@link{Sex} type already created, as enum between Male and Female.)
+    BiologicalSex biologicalSex = generateBiologicalSex();
 
     /**
      * Random genetics profile
@@ -58,18 +60,29 @@ public class Genetics {
         this.hemisphereUsage = hemisphereUsage;
     }
 
-    public Genetics(Genetics parent1, Genetics parent2) { // Assume parent1 is female and parent2 is male. Cause I ain't including weird stuff in my game cause progressive values are useless in a reproductive mission where the point is babies
-        if (parent1.getGender() == parent2.getGender()) {
+    public Genetics(Genetics parent1, Genetics parent2) { // Assume parent1 is female and parent2 is male. Because I ain't including weird stuff in my game cause progressive values are useless in a reproductive mission where the point is babies. Practically speaking, such people would be shunned for hurting the mission objective, no offense to said people.
+        if (parent1.getBiologicalSex() == parent2.getBiologicalSex()) {
             throw new IllegalArgumentException("I'm sorry, but biology does not allow this to happen.");
         }
+        Random random = new Random(System.nanoTime());
+        hairColor = new AllelePair<>(parent1.hairColor, parent2.hairColor, random);
+        eyeColor = new AllelePair<>(parent1.eyeColor, parent2.eyeColor, random);
+        strength = new AllelePair<>(parent1.strength, parent2.strength, random);
+        colorPreference = new AllelePair<>(parent1.colorPreference, parent2.colorPreference, random);
+        health = new AllelePair<>(parent1.health, parent2.health, random);
+        intelligence = new AllelePair<>(parent1.intelligence, parent2.intelligence, random);
+        optimism = new AllelePair<>(parent1.optimism, parent2.optimism, random);
+        charisma = new AllelePair<>(parent1.charisma, parent2.charisma, random);
+        hemisphereUsage = new AllelePair<>(parent1.hemisphereUsage, parent2.hemisphereUsage, random);
+
     }
 
-    private Gender generateGender() {
-        return Math.random() < 0.5025 ? Gender.MALE : Gender.FEMALE;
+    private BiologicalSex generateBiologicalSex() {
+        return Math.random() < 0.5025 ? BiologicalSex.MALE : BiologicalSex.FEMALE;
     }
 
-    public Gender getGender() {
-        return gender;
+    public BiologicalSex getBiologicalSex() {
+        return biologicalSex;
     }
 
     public HairColorAllele.Color getHairColor() {

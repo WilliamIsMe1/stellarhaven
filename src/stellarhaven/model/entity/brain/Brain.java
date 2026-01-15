@@ -13,8 +13,7 @@ import stellarhaven.util.Pair;
 public class Brain {
     ArrayList<Goal> goals;
     Entity host;
-    /**
-     * Skills are here. I'm not sure how to store them yet.
+    /*
      * The kinds of skills that need to be stored are 
      * * Fine motor skills
      * * Computer skills
@@ -22,6 +21,11 @@ public class Brain {
      * * Gardening skills
      * Each structure requires a specific set of jobs, that each require certain skills
      */
+    int fineMotorSkills;
+    int computerSkills;
+    int mechanicalSkills;
+    int gardeningSkills;
+
     ArrayList<Coord> knownLocations = new ArrayList<>();
     ArrayList<Pair<EntityPerson,Integer>> friends = new ArrayList<>();
 }

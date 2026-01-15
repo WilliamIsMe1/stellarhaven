@@ -28,7 +28,19 @@ public class CountedData<T extends Equatable> {
             sb.append(entry).append("[");
             sb.append("#".repeat(Math.max(0, getCount(entry))));
             sb.append(".".repeat(Math.max(0, highWidth - getCount(entry))));
-            sb.append("] ").append(getCount(entry));
+            sb.append("] ").append(getCount(entry)).append("\n");
+        }
+        return sb.toString();
+    }
+
+    public String displayNumerically() {
+        StringBuilder sb = new StringBuilder();
+        for (T entry : currentDataCounted.keySet()) {
+            sb.append(entry);
+            sb.append("[");
+            sb.append(currentDataCounted.get(entry));
+            sb.append("]");
+            sb.append("\n");
         }
         return sb.toString();
     }
@@ -46,7 +58,7 @@ public class CountedData<T extends Equatable> {
     }
 
     public String toString() {
-        return displaySideways();
+        return displayNumerically();
     }
 
 }

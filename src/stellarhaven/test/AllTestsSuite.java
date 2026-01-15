@@ -1,10 +1,10 @@
 package stellarhaven.test;
 
-import stellarhaven.model.entity.genetics.Gender;
+import stellarhaven.model.entity.genetics.BiologicalSex;
 
 public class AllTestsSuite extends TestSuite {
     @Override
     public void initializeSuite() {
-        tests.add(Gender.getGenderTest());
+        tests.add(BiologicalSex.getGenderTest());
     }
 }

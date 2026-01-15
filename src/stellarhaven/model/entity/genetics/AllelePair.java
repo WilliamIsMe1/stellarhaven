@@ -23,6 +23,15 @@ public class AllelePair<T> {
         preference = new Random().nextBoolean();
     }
 
+    public AllelePair(AllelePair<T> one, AllelePair<T> two, Random random) {
+        if (!one.one.getClass().equals(two.one.getClass())) {
+            throw new IllegalArgumentException("Don't combine different allele types!");
+        }
+        this.one = random.nextBoolean() ? one.one : one.two;
+        this.two = random.nextBoolean() ? two.one : two.two;
+        preference = random.nextBoolean();
+    }
+
     public Allele<T> getDominantAllele() {
         if (one.compareTo(two) > 0) {
             return one;

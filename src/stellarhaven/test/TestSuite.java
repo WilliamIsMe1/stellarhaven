@@ -14,7 +14,7 @@ public abstract class TestSuite {
 
 	public void runTests() {
 		System.out.println("Running Tests...");
-		List<Result> results = tests.stream().map(Test::run).toList();
+		List<Result> results = getTests().stream().map(Test::run).toList();
 		System.out.println("Tests finished.");
 		System.out.println("Results: ");
 		for (Result result : results) {

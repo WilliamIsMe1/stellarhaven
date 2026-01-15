@@ -69,7 +69,7 @@ public abstract class Scene {
     }
 
     public Pair<MouseEvent, MouseEventType> popNextUnprocessedMouseEvent() {
-        Iterator<Pair<MouseEvent, MouseEventType>> iterator = unprocessedEvents.iterator();
+        Iterator<Pair<MouseEvent, MouseEventType> > iterator = unprocessedEvents.iterator();
         if (!iterator.hasNext()) return null;
         var val = iterator.next();
         unprocessedEvents.remove(val);

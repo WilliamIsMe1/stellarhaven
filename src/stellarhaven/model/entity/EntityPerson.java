@@ -2,7 +2,7 @@ package stellarhaven.model.entity;
 
 import java.awt.Graphics2D;
 import java.util.Objects;
-import stellarhaven.model.entity.genetics.Gender;
+import stellarhaven.model.entity.genetics.BiologicalSex;
 import stellarhaven.model.entity.genetics.Genetics;
 import stellarhaven.util.Constants;
 import stellarhaven.util.Coord;
@@ -26,8 +26,8 @@ public final class EntityPerson extends Entity {
 
     private final String name;
 
-    public Gender getGender() {
-        return genetics.getGender();
+    public BiologicalSex getGender() {
+        return genetics.getBiologicalSex();
     }
 
     public String getName() {
